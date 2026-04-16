@@ -36,8 +36,8 @@
   --sk-shine:    #F5F3EF;
 
   /* Typography */
-  --font-head: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-head: 'Noto Sans Thai', sans-serif;
+  --font-body: 'Noto Sans Thai', sans-serif;
 
   /* Scale */
   --max-w:     1100px;

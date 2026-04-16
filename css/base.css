@@ -11,7 +11,7 @@ html {
 body {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;   /* Noto Sans Thai อ่านง่ายขึ้นเมื่อ line-height กว้างขึ้น */
   color: var(--text);
   background: var(--bg);
   overflow-x: hidden;
