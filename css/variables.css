@@ -1,0 +1,87 @@
+/* ============================================================
+   DESIGN TOKENS — Light Mode (default)
+   ============================================================ */
+:root {
+  /* Background layers */
+  --bg:          #F8F7F4;
+  --bg-surface:  #FFFFFF;
+  --bg-alt:      #F2EFE9;
+  --bg-hover:    #EDE9E1;
+
+  /* Brand */
+  --primary:         #1B3A5C;
+  --primary-light:   #2A5080;
+  --accent:          #C8965A;
+  --accent-light:    #E8C99A;
+  --accent-dim:      rgba(200,150,90,.15);
+
+  /* Text */
+  --text:        #1A1A2E;
+  --text-2:      #4B5563;
+  --text-3:      #9CA3AF;
+
+  /* Borders & Shadows */
+  --border:      #E5E7EB;
+  --shadow-xs:   0 1px 3px  rgba(0,0,0,.06);
+  --shadow-sm:   0 4px 12px rgba(0,0,0,.08);
+  --shadow-md:   0 8px 28px rgba(0,0,0,.10);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,.12);
+
+  /* Timeline */
+  --tl-line:     #E5E7EB;
+  --tl-dot-bg:   #FFFFFF;
+
+  /* Skeleton pulse */
+  --sk-base:     #E9E7E2;
+  --sk-shine:    #F5F3EF;
+
+  /* Typography */
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Scale */
+  --max-w:     1100px;
+  --nav-h:     68px;
+  --radius-s:  6px;
+  --radius-m:  12px;
+  --radius-l:  20px;
+  --radius-xl: 9999px;
+
+  /* Motion */
+  --ease:      cubic-bezier(.4,0,.2,1);
+  --fast:      .18s;
+  --base:      .28s;
+  --slow:      .5s;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+[data-theme="dark"] {
+  --bg:          #0D1821;
+  --bg-surface:  #172030;
+  --bg-alt:      #1F2E40;
+  --bg-hover:    #263547;
+
+  --primary:         #5B9BD5;
+  --primary-light:   #78B1E0;
+  --accent:          #C8965A;
+  --accent-light:    #A07040;
+  --accent-dim:      rgba(200,150,90,.18);
+
+  --text:        #F0EFEC;
+  --text-2:      #B0BEC5;
+  --text-3:      #5C7080;
+
+  --border:      #263547;
+  --shadow-xs:   0 1px 3px  rgba(0,0,0,.30);
+  --shadow-sm:   0 4px 12px rgba(0,0,0,.40);
+  --shadow-md:   0 8px 28px rgba(0,0,0,.50);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,.60);
+
+  --tl-line:     #263547;
+  --tl-dot-bg:   #172030;
+
+  --sk-base:     #1F2E40;
+  --sk-shine:    #263547;
+}

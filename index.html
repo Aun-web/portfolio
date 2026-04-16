@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="วิศรุต ปวงขจร - ครูสอนภาษาอังกฤษ | Witsarut Puangkhajon - English Teacher Portfolio">
+  <meta name="author" content="Witsarut Puangkhajon">
+  <title>Witsarut Puangkhajon | English Teacher</title>
+
+  <!-- Prevent dark mode flash -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('wp-theme') || 'light';
+      var l = localStorage.getItem('wp-lang') || 'th';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.setAttribute('lang', l === 'th' ? 'th' : 'en');
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Home">
+        <span>WP</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li><a href="#about"          data-th="เกี่ยวกับ"       data-en="About">เกี่ยวกับ</a></li>
+        <li><a href="#experience"     data-th="ประสบการณ์"     data-en="Experience">ประสบการณ์</a></li>
+        <li><a href="#skills"         data-th="ทักษะ"          data-en="Skills">ทักษะ</a></li>
+        <li><a href="#projects"       data-th="ผลงาน"          data-en="Projects">ผลงาน</a></li>
+        <li><a href="#responsibility" data-th="หน้าที่"         data-en="Duties">หน้าที่</a></li>
+        <li><a href="#contact"        data-th="ติดต่อ"          data-en="Contact">ติดต่อ</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button id="langToggle" class="btn-control" aria-label="Toggle Language">
+          <span class="lang-label lang-th">TH</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-label lang-en">EN</span>
+        </button>
+        <button id="themeToggle" class="btn-control btn-theme" aria-label="Toggle Dark Mode">
+          <svg class="icon-sun"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <button id="hamburger" class="btn-hamburger" aria-label="Open Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-dots"></div>
+      <div class="hero-watermark">WP</div>
+    </div>
+    <div class="hero-content container">
+      <p class="hero-greeting reveal-fade" data-th="สวัสดีครับ 👋" data-en="Hello there 👋">สวัสดีครับ 👋</p>
+      <h1 class="hero-name reveal-up">
+        <span data-th="วิศรุต ปวงขจร" data-en="Witsarut Puangkhajon">วิศรุต ปวงขจร</span>
+      </h1>
+      <p class="hero-subtitle reveal-up" style="--delay:.1s">
+        <span class="typewriter-text"
+          data-th-texts='["ครูสอนภาษาอังกฤษ","ผู้สร้างแรงบันดาลใจ","นักพัฒนาการศึกษา"]'
+          data-en-texts='["English Teacher","Learning Facilitator","Education Developer"]'></span>
+        <span class="cursor">|</span>
+      </p>
+      <div class="hero-cta reveal-up" style="--delay:.2s">
+        <a href="#projects" class="btn btn-primary" data-th="ดูผลงาน" data-en="View Portfolio">ดูผลงาน</a>
+        <a href="#contact"  class="btn btn-outline"  data-th="ติดต่อผม" data-en="Contact Me">ติดต่อผม</a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <div class="scroll-dot"></div>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label" data-th="เกี่ยวกับผม" data-en="About Me">เกี่ยวกับผม</span>
+        <h2 data-th="ผู้สอนที่เชื่อในพลังของภาษา" data-en="A Teacher Who Believes in the Power of Language">ผู้สอนที่เชื่อในพลังของภาษา</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-photo reveal-left">
+          <div class="photo-frame">
+            <div class="photo-placeholder" id="photoPlaceholder">
+              <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span>WP</span>
+            </div>
+            <img src="" alt="Witsarut Puangkhajon" id="profilePhoto" class="profile-photo" style="display:none;" loading="lazy">
+          </div>
+          <div class="photo-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span data-th="ครูภาษาอังกฤษ" data-en="English Teacher">ครูภาษาอังกฤษ</span>
+          </div>
+        </div>
+
+        <div class="about-content reveal-right">
+          <p class="bio-text"
+            data-th="วิศรุต ปวงขจร เป็นครูสอนภาษาอังกฤษระดับประถมศึกษาที่มีประสบการณ์กว่า 6 ปี ในโรงเรียนหลายแห่งทั่วภาคเหนือและภาคกลาง ด้วยความมุ่งมั่นที่จะสร้างห้องเรียนที่อบอุ่นและเปี่ยมด้วยการเรียนรู้ เขาเชื่อว่าทุกเด็กมีศักยภาพในการสื่อสารภาษาอังกฤษ หากได้รับโอกาสที่เหมาะสม"
+            data-en="Witsarut Puangkhajon is a dedicated Primary English Teacher with over 6 years of experience across schools in Northern and Central Thailand. Committed to nurturing every child's potential, he creates warm and engaging classrooms where Grades 4–6 students grow confident in communicating in English.">
+            วิศรุต ปวงขจร เป็นครูสอนภาษาอังกฤษระดับประถมศึกษาที่มีประสบการณ์กว่า 6 ปี ในโรงเรียนหลายแห่งทั่วภาคเหนือและภาคกลาง ด้วยความมุ่งมั่นที่จะสร้างห้องเรียนที่อบอุ่นและเปี่ยมด้วยการเรียนรู้ เขาเชื่อว่าทุกเด็กมีศักยภาพในการสื่อสารภาษาอังกฤษ หากได้รับโอกาสที่เหมาะสม
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-item reveal-up" style="--delay:.05s">
+              <span class="stat-num">6+</span>
+              <span class="stat-label" data-th="ปีประสบการณ์" data-en="Years Exp.">ปีประสบการณ์</span>
+            </div>
+            <div class="stat-item reveal-up" style="--delay:.10s">
+              <span class="stat-num">5</span>
+              <span class="stat-label" data-th="โรงเรียน" data-en="Schools">โรงเรียน</span>
+            </div>
+            <div class="stat-item reveal-up" style="--delay:.15s">
+              <span class="stat-num">ป.4–6</span>
+              <span class="stat-label" data-th="ระดับที่สอน" data-en="Grades Taught">ระดับที่สอน</span>
+            </div>
+          </div>
+
+          <p class="about-location">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-th="อ.วังชิ้น จังหวัดแพร่ ประเทศไทย" data-en="Wang Chin District, Phrae, Thailand">อ.วังชิ้น จังหวัดแพร่ ประเทศไทย</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label" data-th="ประสบการณ์การทำงาน" data-en="Work Experience">ประสบการณ์การทำงาน</span>
+        <h2 data-th="เส้นทางวิชาชีพ" data-en="Career Journey">เส้นทางวิชาชีพ</h2>
+      </div>
+      <div class="timeline" id="experienceTimeline">
+        <!-- Skeleton (shown while loading) -->
+        <div class="timeline-item skeleton-item"><div class="tl-dot"></div><div class="tl-body"><div class="sk-line w50"></div><div class="sk-line w35"></div><div class="sk-line w70"></div></div></div>
+        <div class="timeline-item skeleton-item"><div class="tl-dot"></div><div class="tl-body"><div class="sk-line w50"></div><div class="sk-line w35"></div><div class="sk-line w70"></div></div></div>
+        <div class="timeline-item skeleton-item"><div class="tl-dot"></div><div class="tl-body"><div class="sk-line w50"></div><div class="sk-line w35"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label" data-th="ความสามารถ" data-en="Capabilities">ความสามารถ</span>
+        <h2 data-th="ทักษะและความชำนาญ" data-en="Skills & Expertise">ทักษะและความชำนาญ</h2>
+      </div>
+      <div class="skills-wrapper" id="skillsWrapper">
+        <!-- Skeleton -->
+        <div class="skill-category"><div class="sk-line w30 mb16"></div><div class="sk-line w100 mb8"></div><div class="sk-line w100 mb8"></div><div class="sk-line w100"></div></div>
+        <div class="skill-category"><div class="sk-line w30 mb16"></div><div class="sk-line w100 mb8"></div><div class="sk-line w100"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label" data-th="ผลงาน" data-en="Portfolio">ผลงาน</span>
+        <h2 data-th="โครงการและผลงาน" data-en="Projects & Work">โครงการและผลงาน</h2>
+      </div>
+      <div class="project-filter reveal-up" id="projectFilter">
+        <button class="filter-btn active" data-filter="all" data-th="ทั้งหมด" data-en="All">ทั้งหมด</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Skeleton cards -->
+        <div class="project-card skeleton-card"><div class="sk-img"></div><div class="card-body"><div class="sk-line w60 mb8"></div><div class="sk-line w90 mb8"></div><div class="sk-line w45"></div></div></div>
+        <div class="project-card skeleton-card"><div class="sk-img"></div><div class="card-body"><div class="sk-line w60 mb8"></div><div class="sk-line w90 mb8"></div><div class="sk-line w45"></div></div></div>
+        <div class="project-card skeleton-card"><div class="sk-img"></div><div class="card-body"><div class="sk-line w60 mb8"></div><div class="sk-line w90 mb8"></div><div class="sk-line w45"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESPONSIBILITY ===== -->
+  <section id="responsibility" class="section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label" data-th="บทบาทหน้าที่" data-en="Responsibilities">บทบาทหน้าที่</span>
+        <h2 data-th="หน้าที่รับผิดชอบ" data-en="Roles & Duties">หน้าที่รับผิดชอบ</h2>
+      </div>
+      <div class="responsibility-grid" id="responsibilityGrid">
+        <!-- Skeleton -->
+        <div class="resp-card sk-resp"></div>
+        <div class="resp-card sk-resp"></div>
+        <div class="resp-card sk-resp"></div>
+        <div class="resp-card sk-resp"></div>
+        <div class="resp-card sk-resp"></div>
+        <div class="resp-card sk-resp"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-label" data-th="ติดต่อ" data-en="Get in Touch">ติดต่อ</span>
+        <h2 data-th="ช่องทางการติดต่อ" data-en="Contact Information">ช่องทางการติดต่อ</h2>
+      </div>
+      <p class="contact-intro reveal-up"
+        data-th="หากต้องการติดต่อหรือสอบถามข้อมูลเพิ่มเติม สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้ครับ"
+        data-en="Feel free to reach out through any of the channels below. I'd be happy to connect!">
+        หากต้องการติดต่อหรือสอบถามข้อมูลเพิ่มเติม สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้ครับ
+      </p>
+      <div class="contact-cards" id="contactCards">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <p class="footer-name">Witsarut Puangkhajon</p>
+      <p class="footer-role" data-th="ครูสอนภาษาอังกฤษ" data-en="English Teacher">ครูสอนภาษาอังกฤษ</p>
+      <p class="footer-copy">© <span id="footerYear">2025</span> · Made with <span class="heart">♥</span></p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- JS (order matters) -->
+  <script src="js/config.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/lang.js"></script>
+  <script src="js/sheets.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

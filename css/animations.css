@@ -1,0 +1,97 @@
+/* ============================================================
+   SCROLL REVEAL — initial hidden states
+   ============================================================ */
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-fade {
+  opacity: 0;
+  transition:
+    opacity  var(--slow) var(--ease),
+    transform var(--slow) var(--ease);
+  transition-delay: var(--delay, 0s);
+}
+
+.reveal-up    { transform: translateY(32px); }
+.reveal-left  { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-fade  { transform: none; }
+
+/* Triggered state */
+.reveal-up.visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-fade.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   HERO ANIMATIONS
+   ============================================================ */
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(8px); opacity: .4; }
+}
+
+/* Typewriter cursor blink */
+.cursor {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 300;
+  animation: blink .75s step-end infinite;
+  margin-left: 2px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Animated hero gradient (subtle, slow) */
+@keyframes gradientDrift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================================
+   SKILL BAR — triggered by IntersectionObserver via JS
+   The JS sets width directly; this is just the transition.
+   ============================================================ */
+.skill-fill {
+  /* transition already set in layout.css */
+}
+
+/* ============================================================
+   NAVBAR SCROLL STATE — transition defined in layout.css
+   ============================================================ */
+
+/* ============================================================
+   TIMELINE LINE DRAW
+   ============================================================ */
+.timeline::before {
+  /* transition for when timeline enters view */
+  transform-origin: top center;
+}
+
+/* ============================================================
+   PAGE LOAD fade-in (body)
+   ============================================================ */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body {
+  animation: pageFadeIn .4s ease forwards;
+}
+
+/* ============================================================
+   MOBILE MENU OVERLAY
+   ============================================================ */
+@media (max-width: 760px) {
+  .nav-links {
+    z-index: 999;
+  }
+}
