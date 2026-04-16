@@ -144,4 +144,79 @@ const DEFAULT_DATA = {
     { type: 'line',  icon: 'message-circle', label_th: 'ไลน์ไอดี',  label_en: 'LINE ID',  value: '@yourlineid' },
     { type: 'facebook', icon: 'facebook',    label_th: 'Facebook',  label_en: 'Facebook', value: 'facebook.com/yourpage' },
   ],
+
+  /* ── Web Systems ──────────────────────────────────────────── */
+  websystems: [
+    {
+      icon: 'shopping-cart', color: '#10B981', color_dim: 'rgba(16,185,129,.13)',
+      title_th: 'ระบบสหกรณ์ร้านค้า', title_en: 'Cooperative Store System',
+      desc_th: 'ระบบจัดการสหกรณ์ร้านค้าโรงเรียน ครอบคลุมสต็อก การขาย และบัญชี',
+      desc_en: 'School cooperative store management covering inventory, sales, and accounting.',
+      url: 'https://script.google.com/macros/s/AKfycbwcR0DtDYyXde4FoCGdJGroVScvP4e1bjHvraxyPCPdUFJcodncNYkXSjPCJGossudt/exec',
+      tech: 'Google Apps Script',
+    },
+    {
+      icon: 'wallet', color: '#2563EB', color_dim: 'rgba(37,99,235,.13)',
+      title_th: 'ระบบการเงิน', title_en: 'Financial System',
+      desc_th: 'บริหารการเงินโรงเรียน รายรับ–รายจ่าย และรายงานทางการเงิน',
+      desc_en: 'School financial management with income, expenses, and reports.',
+      url: 'https://script.google.com/macros/s/AKfycbz2RI2BWrTcoSm1YCK1lnKPwlwSB-btRIV4Vd7hvJe94fDBxwZZLhYvYpO8wHOciCkugA/exec',
+      tech: 'Google Apps Script',
+    },
+    {
+      icon: 'activity', color: '#F43F5E', color_dim: 'rgba(244,63,94,.13)',
+      title_th: 'ระบบห้องพยาบาล', title_en: 'School Infirmary System',
+      desc_th: 'บันทึกประวัติสุขภาพนักเรียน การรักษา และยาประจำห้องพยาบาล',
+      desc_en: 'Student health records, treatment logs, and infirmary medicine management.',
+      url: 'https://script.google.com/macros/s/AKfycbyuK9PxFOYavfURG1P0M8eZKs7tqcF0EUA5g10vDdeRDBWrpEm0mzZmhiSUCuaGPuMd/exec',
+      tech: 'Google Apps Script',
+    },
+    {
+      icon: 'layout-dashboard', color: '#8B5CF6', color_dim: 'rgba(139,92,246,.13)',
+      title_th: 'ระบบ Main Portal', title_en: 'Main Portal System',
+      desc_th: 'ศูนย์กลางเชื่อมต่อทุกระบบในโรงเรียน เข้าถึงได้ง่ายในที่เดียว',
+      desc_en: 'Central hub connecting all school systems in one convenient portal.',
+      url: 'https://script.google.com/macros/s/AKfycbwTVpX25ucDsYCNCfcd5lc-QPHa-glqyCuB9mVurzFYVxhCFEOM-sjX-yWkzIQqFMvcgQ/exec',
+      tech: 'Google Apps Script',
+    },
+    {
+      icon: 'calendar-days', color: '#F59E0B', color_dim: 'rgba(245,158,11,.13)',
+      title_th: 'ระบบปฏิทินโรงเรียน', title_en: 'School Calendar System',
+      desc_th: 'ปฏิทินกิจกรรม วันสำคัญ และกำหนดการตลอดปีการศึกษา',
+      desc_en: 'School events, important dates, and schedules throughout the academic year.',
+      url: 'https://script.google.com/macros/s/AKfycbzeqzYVtuo9coWZuu7nSpFWygK-GiclIWSXktf7k9j4zz6j2vca4dOutk8iI-vIW2cS/exec',
+      tech: 'Google Apps Script',
+    },
+    {
+      icon: 'book-marked', color: '#14B8A6', color_dim: 'rgba(20,184,166,.13)',
+      title_th: 'ระบบ ปพ.5 และ ปพ.6', title_en: 'Academic Record System',
+      desc_th: 'บันทึกผลการเรียน ปพ.5 สมุดรายงานผล และ ปพ.6 แบบรายงานผู้เรียน',
+      desc_en: 'Grade book management for academic records (Por Por 5 & 6).',
+      url: 'https://script.google.com/macros/s/AKfycbzwSgiQu4_J1ggGZ_CC7LnxkG5kV8NU7j2Q8znVH35OAuhxOzVybT1A2JdZRKi4YXUQ8g/exec',
+      tech: 'Google Apps Script',
+    },
+    {
+      icon: 'credit-card', color: '#6366F1', color_dim: 'rgba(99,102,241,.13)',
+      title_th: 'ระบบลงทะเบียนบัตรนักเรียน', title_en: 'Student ID Registration',
+      desc_th: 'ลงทะเบียนและจัดการข้อมูลบัตรประจำตัวนักเรียนทั้งโรงเรียน',
+      desc_en: 'School-wide student ID card registration and data management.',
+      url: 'https://script.google.com/macros/s/AKfycbynMVuU4kJipvr55AbF8wsLu6ynmFePaIdjuiMhmR3ttg-aXZFDJBvi6ECKrcrklpdNGQ/exec',
+      tech: 'Google Apps Script',
+    },
+  ],
+
+  /* ── Line OA ──────────────────────────────────────────────── */
+  lineoa: {
+    title_th: 'ระบบ Line OA โรงเรียน',
+    title_en: 'School Line Official Account',
+    desc_th: 'ระบบสื่อสารครบวงจรระหว่างครูและผู้ปกครองผ่าน Line Official Account ของโรงเรียน ครอบคลุมทุกความต้องการด้านการสื่อสารในชีวิตประจำวัน',
+    desc_en: 'A complete teacher-parent communication system via the school\'s Line OA, covering all daily communication needs.',
+    features: [
+      { icon: 'check-square',  label_th: 'เช็คชื่อนักเรียน',   label_en: 'Attendance Check'     },
+      { icon: 'megaphone',     label_th: 'ครูประกาศ–แจ้งข่าว', label_en: 'Teacher Announcements' },
+      { icon: 'bar-chart-2',   label_th: 'ดูเกรดนักเรียน',     label_en: 'Grade Viewing'         },
+      { icon: 'book-open',     label_th: 'ติดตามการบ้าน',       label_en: 'Homework Tracking'     },
+      { icon: 'calendar-days', label_th: 'ตรวจสอบวันหยุด',     label_en: 'Holiday Calendar'      },
+    ],
+  },
 };

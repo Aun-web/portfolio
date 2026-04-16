@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderExperience(d.experience);
   renderSkills(d.skills);
   renderProjects(d.projects);
+  renderWebsysGrid(DEFAULT_DATA.websystems);
+  renderLineOA(DEFAULT_DATA.lineoa);
   renderResponsibility(d.responsibility);
   renderContact(d.contact);
 
