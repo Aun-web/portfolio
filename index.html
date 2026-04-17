@@ -230,23 +230,31 @@
 
   <!-- ===== ACTIVITIES ===== -->
   <section id="activities" class="section section-act">
-    <!-- Photo strip — 3 personal photos -->
     <div class="container">
-      <div class="act-photo-strip reveal-up">
-        <div class="act-photo-frame">
-          <img src="images/act-bg-1.jpg" alt="" class="act-mosaic-img" loading="lazy">
+      <!-- Header: text left + photo collage right -->
+      <div class="act-header-grid">
+        <div class="act-header-text reveal-left">
+          <span class="section-label" data-th="กิจกรรม" data-en="Activities">กิจกรรม</span>
+          <h2 data-th="กิจกรรมและผลงานการสอน" data-en="Teaching Activities & Events">กิจกรรมและผลงานการสอน</h2>
+          <p class="act-header-desc reveal-left" style="--delay:.08s"
+             data-th="บันทึกกิจกรรมการเรียนการสอนและความทรงจำดีๆ ในห้องเรียน"
+             data-en="A record of classroom activities and cherished teaching memories">
+            บันทึกกิจกรรมการเรียนการสอนและความทรงจำดีๆ ในห้องเรียน
+          </p>
         </div>
-        <div class="act-photo-frame">
-          <img src="images/act-bg-2.jpg" alt="" class="act-mosaic-img" loading="lazy">
-        </div>
-        <div class="act-photo-frame">
-          <img src="images/act-bg-3.jpg" alt="" class="act-mosaic-img" loading="lazy">
+        <div class="act-photo-collage reveal-right">
+          <div class="act-pf act-pf-1">
+            <img src="images/act-bg-1.jpg" alt="" loading="lazy">
+          </div>
+          <div class="act-pf act-pf-2">
+            <img src="images/act-bg-2.jpg" alt="" loading="lazy">
+          </div>
+          <div class="act-pf act-pf-3">
+            <img src="images/act-bg-3.jpg" alt="" loading="lazy">
+          </div>
         </div>
       </div>
-      <div class="section-header reveal-up" style="margin-top:44px">
-        <span class="section-label" data-th="กิจกรรม" data-en="Activities">กิจกรรม</span>
-        <h2 data-th="กิจกรรมและผลงานการสอน" data-en="Teaching Activities & Events">กิจกรรมและผลงานการสอน</h2>
-      </div>
+      <!-- Cards -->
       <div class="act-year-filter reveal-up" id="actYearFilter"></div>
       <div class="act-grid" id="activitiesGrid"></div>
     </div>

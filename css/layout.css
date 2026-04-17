@@ -481,28 +481,77 @@
    ============================================================ */
 .section-act { padding-top: 0; }
 
-/* ── Photo strip (3 personal photos) ── */
-.act-photo-strip {
+/* ── Header: text left + collage right ── */
+.act-header-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 56px;
+  min-height: 300px;
 }
-.act-photo-frame {
+
+.act-header-text { display: flex; flex-direction: column; gap: 14px; }
+.act-header-text .section-label { align-self: flex-start; }
+.act-header-text h2 { text-align: left; }
+.act-header-desc {
+  font-size: .92rem;
+  color: var(--text-3);
+  line-height: 1.75;
+  margin-top: 4px;
+}
+
+/* ── Photo collage ── */
+.act-photo-collage {
+  position: relative;
+  height: 300px;
+}
+
+/* shared frame style */
+.act-pf {
+  position: absolute;
   border-radius: var(--radius-m);
   overflow: hidden;
-  height: 240px;
-  border: 2px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  background: var(--bg-alt);
+  border: 4px solid var(--bg-surface);
+  box-shadow: 0 8px 32px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.12);
+  transition: transform var(--base) var(--ease),
+              box-shadow var(--base) var(--ease),
+              z-index 0s;
+  cursor: pointer;
 }
-.act-mosaic-img {
+.act-pf img {
   width: 100%; height: 100%;
   object-fit: cover; object-position: center top;
   display: block;
-  will-change: transform;
-  transition: transform var(--slow) var(--ease);
 }
-.act-photo-frame:hover .act-mosaic-img { transform: scale(1.04); }
+.act-pf:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,.28), 0 4px 12px rgba(0,0,0,.16);
+  z-index: 10 !important;
+}
+
+/* Photo 1 — large, top-left, tilt left */
+.act-pf-1 {
+  width: 58%; aspect-ratio: 4/3;
+  top: 0; left: 0; z-index: 1;
+  transform: rotate(-3deg);
+}
+.act-pf-1:hover { transform: rotate(-3deg) scale(1.05) translateY(-4px); }
+
+/* Photo 2 — small, right, tilt right */
+.act-pf-2 {
+  width: 42%; aspect-ratio: 4/3;
+  top: 22%; right: 0; z-index: 2;
+  transform: rotate(2.5deg);
+}
+.act-pf-2:hover { transform: rotate(2.5deg) scale(1.06) translateY(-4px); }
+
+/* Photo 3 — medium, bottom-center, slight tilt */
+.act-pf-3 {
+  width: 50%; aspect-ratio: 4/3;
+  bottom: 0; left: 14%; z-index: 3;
+  transform: rotate(-1.5deg);
+}
+.act-pf-3:hover { transform: rotate(-1.5deg) scale(1.05) translateY(-4px); }
 
 /* ── Year filter ── */
 .act-year-filter {
@@ -518,16 +567,18 @@
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+  .act-header-grid { grid-template-columns: 1fr; gap: 40px; min-height: unset; }
+  .act-header-text h2 { text-align: center; }
+  .act-header-text .section-label { align-self: center; }
+  .act-header-desc { text-align: center; }
+  .act-photo-collage { height: 260px; max-width: 480px; margin: 0 auto; }
+}
 @media (max-width: 760px) {
-  .act-photo-strip { grid-template-columns: 1fr 1fr; }
-  .act-photo-strip .act-photo-frame:last-child { display: none; }
-  .act-photo-frame { height: 190px; }
   .act-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .act-photo-strip { grid-template-columns: 1fr; }
-  .act-photo-strip .act-photo-frame:not(:first-child) { display: none; }
-  .act-photo-frame { height: 200px; }
+  .act-photo-collage { height: 220px; }
   .act-grid { grid-template-columns: 1fr; }
 }
 

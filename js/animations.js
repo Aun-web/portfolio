@@ -159,16 +159,19 @@ function initSmoothScroll() {
 /* ── Activities mosaic parallax ─────────────────────── */
 function initActivitiesParallax() {
   const section = document.getElementById('activities');
-  const imgs    = section?.querySelectorAll('.act-photo-frame .act-mosaic-img');
-  if (!section || !imgs.length) return;
+  const frames  = section?.querySelectorAll('.act-pf');
+  if (!section || !frames.length) return;
+
+  // Base rotations per frame (keep tilt while adding parallax shift)
+  const rots = [-3, 2.5, -1.5];
 
   const onScroll = () => {
     const rect = section.getBoundingClientRect();
     if (rect.bottom < -80 || rect.top > window.innerHeight + 80) return;
-    const progress = rect.top / window.innerHeight; // 1→0→-1
-    imgs.forEach((img, i) => {
-      const shift = progress * (10 + i * 4);
-      img.style.transform = `scale(1.06) translateY(${shift}px)`;
+    const progress = rect.top / window.innerHeight;
+    frames.forEach((f, i) => {
+      const shift = progress * (8 + i * 3);
+      f.style.transform = `rotate(${rots[i]}deg) translateY(${shift}px)`;
     });
   };
   window.addEventListener('scroll', onScroll, { passive: true });
