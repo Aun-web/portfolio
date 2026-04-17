@@ -15,7 +15,7 @@ const CONFIG = {
     projects:       '1007710820',
     responsibility: '2051998715',
     contact:        '364182622',
-    activities:     '',           // ← วาง GID ของ tab ACTIVITIES หลังสร้าง tab
+    activities:     '814240410',  // ✅ tab ACTIVITIES
   },
 
   /* ─── Defaults ───────────────────────────────────────────── */
