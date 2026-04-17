@@ -481,40 +481,28 @@
    ============================================================ */
 .section-act { padding-top: 0; }
 
-/* ── Mosaic photo header ── */
-.act-mosaic {
-  position: relative;
+/* ── Photo strip (3 personal photos) ── */
+.act-photo-strip {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  height: 280px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 12px;
+}
+.act-photo-frame {
+  border-radius: var(--radius-m);
   overflow: hidden;
-  margin-bottom: 52px;
+  height: 240px;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-alt);
 }
 .act-mosaic-img {
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.12);
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
   will-change: transform;
+  transition: transform var(--slow) var(--ease);
 }
-.act-mosaic-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,.20) 0%,
-    rgba(0,0,0,.62) 100%
-  );
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: flex-end;
-  padding: 36px 24px;
-  text-align: center;
-  gap: 10px;
-}
-.act-section-label {
-  color: rgba(255,255,255,.88) !important;
-  border-color: rgba(255,255,255,.28) !important;
-  background: rgba(255,255,255,.10) !important;
-}
-.act-section-title { color: #fff !important; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+.act-photo-frame:hover .act-mosaic-img { transform: scale(1.04); }
 
 /* ── Year filter ── */
 .act-year-filter {
@@ -531,13 +519,15 @@
 
 /* Responsive */
 @media (max-width: 760px) {
-  .act-mosaic { grid-template-columns: 1fr 1fr; height: 220px; }
-  .act-mosaic-img:last-child { display: none; }
+  .act-photo-strip { grid-template-columns: 1fr 1fr; }
+  .act-photo-strip .act-photo-frame:last-child { display: none; }
+  .act-photo-frame { height: 190px; }
   .act-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .act-mosaic { grid-template-columns: 1fr; height: 200px; }
-  .act-mosaic-img:not(:first-child) { display: none; }
+  .act-photo-strip { grid-template-columns: 1fr; }
+  .act-photo-strip .act-photo-frame:not(:first-child) { display: none; }
+  .act-photo-frame { height: 200px; }
   .act-grid { grid-template-columns: 1fr; }
 }
 

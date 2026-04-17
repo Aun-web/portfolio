@@ -290,11 +290,11 @@ function renderLineOA(lineoa) {
 
 /* ── ACTIVITIES ─────────────────────────────────────── */
 
-/* Convert Google Drive share URL → direct image URL */
+/* Convert Google Drive share URL → thumbnail API (more reliable for <img>) */
 function driveUrl(url) {
   if (!url) return '';
   const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if (m) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+  if (m) return `https://drive.google.com/thumbnail?id=${m[1]}&sz=w1280`;
   return url; // already direct or external URL
 }
 

@@ -230,18 +230,23 @@
 
   <!-- ===== ACTIVITIES ===== -->
   <section id="activities" class="section section-act">
-    <!-- Photo mosaic with parallax — full width, no container -->
-    <div class="act-mosaic">
-      <div class="act-mosaic-img" style="background-image:url('images/act-bg-1.jpg')"></div>
-      <div class="act-mosaic-img" style="background-image:url('images/act-bg-2.jpg')"></div>
-      <div class="act-mosaic-img" style="background-image:url('images/act-bg-3.jpg')"></div>
-      <div class="act-mosaic-overlay">
-        <span class="section-label act-section-label" data-th="กิจกรรม" data-en="Activities">กิจกรรม</span>
-        <h2 class="act-section-title" data-th="กิจกรรมและผลงานการสอน" data-en="Teaching Activities & Events">กิจกรรมและผลงานการสอน</h2>
-      </div>
-    </div>
-    <!-- Cards area -->
+    <!-- Photo strip — 3 personal photos -->
     <div class="container">
+      <div class="act-photo-strip reveal-up">
+        <div class="act-photo-frame">
+          <img src="images/act-bg-1.jpg" alt="" class="act-mosaic-img" loading="lazy">
+        </div>
+        <div class="act-photo-frame">
+          <img src="images/act-bg-2.jpg" alt="" class="act-mosaic-img" loading="lazy">
+        </div>
+        <div class="act-photo-frame">
+          <img src="images/act-bg-3.jpg" alt="" class="act-mosaic-img" loading="lazy">
+        </div>
+      </div>
+      <div class="section-header reveal-up" style="margin-top:44px">
+        <span class="section-label" data-th="กิจกรรม" data-en="Activities">กิจกรรม</span>
+        <h2 data-th="กิจกรรมและผลงานการสอน" data-en="Teaching Activities & Events">กิจกรรมและผลงานการสอน</h2>
+      </div>
       <div class="act-year-filter reveal-up" id="actYearFilter"></div>
       <div class="act-grid" id="activitiesGrid"></div>
     </div>

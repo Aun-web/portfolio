@@ -159,21 +159,20 @@ function initSmoothScroll() {
 /* ── Activities mosaic parallax ─────────────────────── */
 function initActivitiesParallax() {
   const section = document.getElementById('activities');
-  const imgs    = section?.querySelectorAll('.act-mosaic-img');
+  const imgs    = section?.querySelectorAll('.act-photo-frame .act-mosaic-img');
   if (!section || !imgs.length) return;
 
   const onScroll = () => {
     const rect = section.getBoundingClientRect();
     if (rect.bottom < -80 || rect.top > window.innerHeight + 80) return;
-    // progress: 1 (section above viewport) → 0 (top aligned) → -1 (below)
-    const progress = rect.top / window.innerHeight;
+    const progress = rect.top / window.innerHeight; // 1→0→-1
     imgs.forEach((img, i) => {
-      const shift = progress * (16 + i * 5);   // each photo shifts slightly different
-      img.style.transform = `scale(1.12) translateY(${shift}px)`;
+      const shift = progress * (10 + i * 4);
+      img.style.transform = `scale(1.06) translateY(${shift}px)`;
     });
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
+  onScroll();
 }
 
 /* ── Back to Top ─────────────────────────────────────── */
