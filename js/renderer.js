@@ -209,6 +209,11 @@ function renderWebsysGrid(data) {
     <a href="${escAttr(sys.url)}" target="_blank" rel="noopener noreferrer"
        class="websys-card reveal-up"
        style="--delay:${(i % 4) * 0.07}s; --sys-color:${sys.color}; --sys-color-dim:${sys.color_dim}">
+      ${sys.image ? `
+      <div class="websys-img">
+        <img src="${escAttr(sys.image)}" alt="${escAttr(lang === 'th' ? sys.title_th : sys.title_en)}" loading="lazy">
+        <div class="websys-img-overlay"></div>
+      </div>` : ''}
       <div class="websys-icon">
         <svg data-icon="${escAttr(sys.icon)}" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

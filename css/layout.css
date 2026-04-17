@@ -145,12 +145,13 @@
     linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 100%);
 }
 
-/* Dot grid */
+/* Line grid */
 .hero-dots {
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: .5;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 /* Watermark initials */
@@ -172,6 +173,18 @@
   position: relative; z-index: 1;
   text-align: center;
   padding-top: var(--nav-h);
+}
+/* Glass depth layer behind hero text */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  inset: -60px -100px;
+  z-index: -1;
+  background: radial-gradient(ellipse 72% 65% at 50% 50%,
+    var(--hero-glow) 0%, transparent 68%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  pointer-events: none;
 }
 
 .hero-greeting {

@@ -27,6 +27,8 @@ const CONFIG = {
    ============================================================ */
 const DEFAULT_DATA = {
 
+  photoUrl: 'images/profile.jpg',
+
   experience: [
     {
       period_th: '2562 – 2563',
@@ -149,6 +151,7 @@ const DEFAULT_DATA = {
   websystems: [
     {
       icon: 'shopping-cart', color: '#10B981', color_dim: 'rgba(16,185,129,.13)',
+      image: 'images/sys-store.jpg',
       title_th: 'ระบบสหกรณ์ร้านค้า', title_en: 'Cooperative Store System',
       desc_th: 'ระบบจัดการสหกรณ์ร้านค้าโรงเรียน ครอบคลุมสต็อก การขาย และบัญชี',
       desc_en: 'School cooperative store management covering inventory, sales, and accounting.',
@@ -157,6 +160,7 @@ const DEFAULT_DATA = {
     },
     {
       icon: 'wallet', color: '#2563EB', color_dim: 'rgba(37,99,235,.13)',
+      image: 'images/sys-finance.jpg',
       title_th: 'ระบบการเงิน', title_en: 'Financial System',
       desc_th: 'บริหารการเงินโรงเรียน รายรับ–รายจ่าย และรายงานทางการเงิน',
       desc_en: 'School financial management with income, expenses, and reports.',
@@ -165,6 +169,7 @@ const DEFAULT_DATA = {
     },
     {
       icon: 'activity', color: '#F43F5E', color_dim: 'rgba(244,63,94,.13)',
+      image: 'images/sys-health.jpg',
       title_th: 'ระบบห้องพยาบาล', title_en: 'School Infirmary System',
       desc_th: 'บันทึกประวัติสุขภาพนักเรียน การรักษา และยาประจำห้องพยาบาล',
       desc_en: 'Student health records, treatment logs, and infirmary medicine management.',
@@ -173,6 +178,7 @@ const DEFAULT_DATA = {
     },
     {
       icon: 'layout-dashboard', color: '#8B5CF6', color_dim: 'rgba(139,92,246,.13)',
+      image: 'images/sys-portal.jpg',
       title_th: 'ระบบ Main Portal', title_en: 'Main Portal System',
       desc_th: 'ศูนย์กลางเชื่อมต่อทุกระบบในโรงเรียน เข้าถึงได้ง่ายในที่เดียว',
       desc_en: 'Central hub connecting all school systems in one convenient portal.',
@@ -181,6 +187,7 @@ const DEFAULT_DATA = {
     },
     {
       icon: 'calendar-days', color: '#F59E0B', color_dim: 'rgba(245,158,11,.13)',
+      image: 'images/sys-calendar.jpg',
       title_th: 'ระบบปฏิทินโรงเรียน', title_en: 'School Calendar System',
       desc_th: 'ปฏิทินกิจกรรม วันสำคัญ และกำหนดการตลอดปีการศึกษา',
       desc_en: 'School events, important dates, and schedules throughout the academic year.',
@@ -189,6 +196,7 @@ const DEFAULT_DATA = {
     },
     {
       icon: 'book-marked', color: '#14B8A6', color_dim: 'rgba(20,184,166,.13)',
+      image: 'images/sys-grade.jpg',
       title_th: 'ระบบ ปพ.5 และ ปพ.6', title_en: 'Academic Record System',
       desc_th: 'บันทึกผลการเรียน ปพ.5 สมุดรายงานผล และ ปพ.6 แบบรายงานผู้เรียน',
       desc_en: 'Grade book management for academic records (Por Por 5 & 6).',
@@ -197,6 +205,7 @@ const DEFAULT_DATA = {
     },
     {
       icon: 'credit-card', color: '#6366F1', color_dim: 'rgba(99,102,241,.13)',
+      image: 'images/sys-idcard.jpg',
       title_th: 'ระบบลงทะเบียนบัตรนักเรียน', title_en: 'Student ID Registration',
       desc_th: 'ลงทะเบียนและจัดการข้อมูลบัตรประจำตัวนักเรียนทั้งโรงเรียน',
       desc_en: 'School-wide student ID card registration and data management.',

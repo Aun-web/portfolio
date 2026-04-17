@@ -35,6 +35,10 @@
   --sk-base:     #E9E7E2;
   --sk-shine:    #F5F3EF;
 
+  /* Hero depth */
+  --grid-line:   rgba(27,58,92,.07);
+  --hero-glow:   rgba(248,247,244,.75);
+
   /* Typography */
   --font-head: 'Noto Sans Thai', sans-serif;
   --font-body: 'Noto Sans Thai', sans-serif;
@@ -84,4 +88,8 @@
 
   --sk-base:     #1F2E40;
   --sk-shine:    #263547;
+
+  /* Hero depth */
+  --grid-line:   rgba(91,155,213,.06);
+  --hero-glow:   rgba(13,24,33,.65);
 }
