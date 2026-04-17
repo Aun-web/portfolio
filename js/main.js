@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   initSmoothScroll();
   initBackToTop();
   initParallax();
+  initActivitiesParallax();
   observeReveal();   // reveal static elements (hero, about, headers)
   initTypewriter();
+  initActivityModal();
 
   /* ── Footer year ────────────────────────────────────── */
   const fy = document.getElementById('footerYear');
@@ -56,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderProjects(d.projects);
   renderWebsysGrid(DEFAULT_DATA.websystems);
   renderLineOA(DEFAULT_DATA.lineoa);
+  renderActivities(data && data.activities);   // Sheets only — no fallback
   renderResponsibility(d.responsibility);
   renderContact(d.contact);
 

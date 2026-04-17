@@ -11,10 +11,11 @@ const CONFIG = {
   // GID ของแต่ละ tab — กรอกหลังจากเปิด Sheet แล้วคลิกแต่ละ tab ดู URL
   GIDS: {
     experience:     '0',          // tab แรก = 0 เสมอ ✅
-    skills:         '17333276',           // ← วาง GID ของ tab SKILLS
-    projects:       '1007710820',           // ← วาง GID ของ tab PROJECTS
-    responsibility: '2051998715',           // ← วาง GID ของ tab RESPONSIBILITY
-    contact:        '364182622',           // ← วาง GID ของ tab CONTACT
+    skills:         '17333276',
+    projects:       '1007710820',
+    responsibility: '2051998715',
+    contact:        '364182622',
+    activities:     '',           // ← วาง GID ของ tab ACTIVITIES หลังสร้าง tab
   },
 
   /* ─── Defaults ───────────────────────────────────────────── */

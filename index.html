@@ -47,6 +47,7 @@
         <li><a href="#about"          data-th="เกี่ยวกับ"       data-en="About">เกี่ยวกับ</a></li>
         <li><a href="#experience"     data-th="ประสบการณ์"     data-en="Experience">ประสบการณ์</a></li>
         <li><a href="#skills"         data-th="ทักษะ"          data-en="Skills">ทักษะ</a></li>
+        <li><a href="#activities"     data-th="กิจกรรม"        data-en="Activities">กิจกรรม</a></li>
         <li><a href="#responsibility" data-th="หน้าที่"         data-en="Duties">หน้าที่</a></li>
         <li><a href="#contact"        data-th="ติดต่อ"          data-en="Contact">ติดต่อ</a></li>
       </ul>
@@ -227,6 +228,25 @@
     </div>
   </section>
 
+  <!-- ===== ACTIVITIES ===== -->
+  <section id="activities" class="section section-act">
+    <!-- Photo mosaic with parallax — full width, no container -->
+    <div class="act-mosaic">
+      <div class="act-mosaic-img" style="background-image:url('images/act-bg-1.jpg')"></div>
+      <div class="act-mosaic-img" style="background-image:url('images/act-bg-2.jpg')"></div>
+      <div class="act-mosaic-img" style="background-image:url('images/act-bg-3.jpg')"></div>
+      <div class="act-mosaic-overlay">
+        <span class="section-label act-section-label" data-th="กิจกรรม" data-en="Activities">กิจกรรม</span>
+        <h2 class="act-section-title" data-th="กิจกรรมและผลงานการสอน" data-en="Teaching Activities & Events">กิจกรรมและผลงานการสอน</h2>
+      </div>
+    </div>
+    <!-- Cards area -->
+    <div class="container">
+      <div class="act-year-filter reveal-up" id="actYearFilter"></div>
+      <div class="act-grid" id="activitiesGrid"></div>
+    </div>
+  </section>
+
   <!-- ===== RESPONSIBILITY ===== -->
   <section id="responsibility" class="section">
     <div class="container">
@@ -272,6 +292,30 @@
       <p class="footer-copy">© <span id="footerYear">2025</span> · Made with <span class="heart">♥</span></p>
     </div>
   </footer>
+
+  <!-- ===== ACTIVITY MODAL ===== -->
+  <div id="activityModal" class="act-modal" role="dialog" aria-modal="true" aria-label="Activity photos">
+    <div class="act-modal-backdrop"></div>
+    <div class="act-modal-box">
+      <div class="act-modal-header">
+        <h3 class="act-modal-title"></h3>
+        <button class="act-modal-close" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="act-modal-viewer">
+        <img class="act-modal-main-img" src="" alt="">
+        <button class="act-modal-nav act-modal-prev" aria-label="Previous photo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="act-modal-nav act-modal-next" aria-label="Next photo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <span class="act-modal-counter">1 / 1</span>
+      </div>
+      <div class="act-modal-thumbs"></div>
+    </div>
+  </div>
 
   <!-- Back to Top -->
   <button id="backToTop" class="back-to-top" aria-label="Back to top">

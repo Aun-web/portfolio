@@ -288,6 +288,170 @@ function renderLineOA(lineoa) {
   observeReveal();
 }
 
+/* ── ACTIVITIES ─────────────────────────────────────── */
+
+/* Convert Google Drive share URL → direct image URL */
+function driveUrl(url) {
+  if (!url) return '';
+  const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (m) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+  return url; // already direct or external URL
+}
+
+function renderActivities(data) {
+  const grid       = document.getElementById('activitiesGrid');
+  const yearFilter = document.getElementById('actYearFilter');
+  const section    = document.getElementById('activities');
+
+  // Hide section if no Sheet data
+  if (!grid || !data || !data.length) {
+    if (section) section.style.display = 'none';
+    return;
+  }
+  if (section) section.style.display = '';
+
+  const lang = getLang();
+
+  // Pre-process: split photos string → array, convert Drive URLs
+  data.forEach(a => {
+    a._photos = (a.photos || '')
+      .split(',')
+      .map(s => driveUrl(s.trim()))
+      .filter(Boolean);
+    a._cover = driveUrl(a.cover_url) || a._photos[0] || '';
+  });
+
+  // Unique years, descending
+  const years = [...new Set(data.map(a => a.year).filter(Boolean))]
+    .sort((a, b) => b - a);
+
+  // Year filter buttons
+  let activeYear = years[0] || 'all';
+  const allBtn = years.length > 1
+    ? `<button class="filter-btn" data-year="all" data-th="ทั้งหมด" data-en="All">${lang === 'th' ? 'ทั้งหมด' : 'All'}</button>`
+    : '';
+  yearFilter.innerHTML = allBtn + years.map((y, i) =>
+    `<button class="filter-btn ${i === 0 ? 'active' : ''}" data-year="${escAttr(y)}">${escAttr(y)}</button>`
+  ).join('');
+
+  function renderCards(year) {
+    const filtered = year === 'all' ? data : data.filter(a => a.year === year);
+    grid.innerHTML = filtered.map((act, i) => {
+      const name  = lang === 'th' ? act.name_th : act.name_en;
+      const count = act._photos.length;
+      const globalIdx = data.indexOf(act);
+      return `
+      <div class="act-card reveal-up" style="--delay:${(i % 4) * 0.07}s" data-act="${globalIdx}">
+        ${act._cover
+          ? `<img class="act-card-img" src="${escAttr(act._cover)}" alt="${escAttr(name)}" loading="lazy">`
+          : `<div class="act-card-img-placeholder">
+               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+             </div>`}
+        <div class="act-card-body">
+          <h3 class="act-card-title"
+              data-th="${escAttr(act.name_th)}"
+              data-en="${escAttr(act.name_en)}">${escAttr(name)}</h3>
+          <div class="act-card-meta">
+            <span>${escAttr(act.year || '')}</span>
+            <span class="act-photo-count">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              ${count} รูป
+            </span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    observeReveal();
+
+    grid.querySelectorAll('.act-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const idx = parseInt(card.dataset.act);
+        openActivityModal(data[idx]);
+      });
+    });
+  }
+
+  renderCards(activeYear);
+
+  yearFilter.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    yearFilter.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeYear = btn.dataset.year;
+    renderCards(activeYear);
+  });
+}
+
+/* ── Activity Modal ──────────────────────────────────── */
+let _mPhotos = [], _mIdx = 0;
+
+function openActivityModal(act) {
+  const modal = document.getElementById('activityModal');
+  if (!modal) return;
+  _mPhotos = act._photos;
+  _mIdx    = 0;
+  modal.querySelector('.act-modal-title').textContent =
+    getLang() === 'th' ? act.name_th : act.name_en;
+  _buildThumbs(modal);
+  _showPhoto(modal);
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function _closeModal() {
+  const modal = document.getElementById('activityModal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function _showPhoto(modal) {
+  const img     = modal.querySelector('.act-modal-main-img');
+  const counter = modal.querySelector('.act-modal-counter');
+  const prev    = modal.querySelector('.act-modal-prev');
+  const next    = modal.querySelector('.act-modal-next');
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = _mPhotos[_mIdx]; img.style.opacity = '1'; }, 160);
+  counter.textContent = `${_mIdx + 1} / ${_mPhotos.length}`;
+  prev.disabled = (_mIdx === 0);
+  next.disabled = (_mIdx === _mPhotos.length - 1);
+  modal.querySelectorAll('.act-modal-thumb')
+    .forEach((t, i) => t.classList.toggle('active', i === _mIdx));
+}
+
+function _buildThumbs(modal) {
+  const strip = modal.querySelector('.act-modal-thumbs');
+  strip.innerHTML = _mPhotos.map((url, i) =>
+    `<img class="act-modal-thumb ${i === 0 ? 'active' : ''}"
+          src="${escAttr(url)}" alt="Photo ${i + 1}"
+          loading="lazy" data-idx="${i}">`
+  ).join('');
+  strip.querySelectorAll('.act-modal-thumb').forEach(t =>
+    t.addEventListener('click', () => { _mIdx = parseInt(t.dataset.idx); _showPhoto(modal); })
+  );
+}
+
+function initActivityModal() {
+  const modal = document.getElementById('activityModal');
+  if (!modal) return;
+  modal.querySelector('.act-modal-backdrop').addEventListener('click', _closeModal);
+  modal.querySelector('.act-modal-close').addEventListener('click', _closeModal);
+  modal.querySelector('.act-modal-prev').addEventListener('click', () => {
+    if (_mIdx > 0) { _mIdx--; _showPhoto(modal); }
+  });
+  modal.querySelector('.act-modal-next').addEventListener('click', () => {
+    if (_mIdx < _mPhotos.length - 1) { _mIdx++; _showPhoto(modal); }
+  });
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape')      _closeModal();
+    if (e.key === 'ArrowLeft'  && _mIdx > 0)                        { _mIdx--; _showPhoto(modal); }
+    if (e.key === 'ArrowRight' && _mIdx < _mPhotos.length - 1)      { _mIdx++; _showPhoto(modal); }
+  });
+}
+
 /* ── Lucide icon injector (simple path lookup) ──────── */
 const LUCIDE_PATHS = {
   /* existing */

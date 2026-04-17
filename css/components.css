@@ -260,6 +260,162 @@
 .copy-btn svg    { width: 16px; height: 16px; display: block; }
 
 /* ============================================================
+   ACTIVITY CARDS
+   ============================================================ */
+.act-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--base) var(--ease),
+              box-shadow var(--base) var(--ease),
+              border-color var(--fast);
+}
+.act-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-light);
+}
+.act-card-img {
+  width: 100%; height: 150px;
+  object-fit: cover; object-position: center top;
+  display: block;
+  background: var(--bg-alt);
+  transition: transform var(--slow) var(--ease);
+}
+.act-card:hover .act-card-img { transform: scale(1.05); }
+.act-card-img-placeholder {
+  width: 100%; height: 150px;
+  background: var(--bg-alt);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-3);
+}
+.act-card-body { padding: 14px 16px 16px; }
+.act-card-title {
+  font-size: .92rem; font-weight: 600;
+  color: var(--text); margin-bottom: 8px;
+  line-height: 1.35;
+}
+.act-card-meta {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  font-size: .75rem; color: var(--text-3);
+}
+.act-photo-count {
+  display: flex; align-items: center; gap: 4px;
+  color: var(--accent); font-weight: 600;
+}
+
+/* ============================================================
+   ACTIVITY MODAL LIGHTBOX
+   ============================================================ */
+.act-modal {
+  position: fixed; inset: 0; z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--base) var(--ease);
+}
+.act-modal.open { opacity: 1; pointer-events: all; }
+
+.act-modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.88);
+  cursor: pointer;
+}
+.act-modal-box {
+  position: relative; z-index: 1;
+  background: var(--bg-surface);
+  border-radius: var(--radius-l);
+  width: min(94vw, 880px);
+  max-height: 92vh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,.5);
+  transform: scale(.95) translateY(20px);
+  transition: transform var(--base) var(--ease);
+}
+.act-modal.open .act-modal-box { transform: none; }
+
+.act-modal-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.act-modal-title {
+  font-size: 1rem; font-weight: 700; color: var(--text);
+}
+.act-modal-close {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--bg-hover); color: var(--text-2);
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--fast), color var(--fast);
+  flex-shrink: 0;
+}
+.act-modal-close:hover { background: var(--accent); color: #fff; }
+
+.act-modal-viewer {
+  position: relative; flex: 1; overflow: hidden;
+  background: #111;
+  min-height: 260px;
+  display: flex; align-items: center; justify-content: center;
+}
+.act-modal-main-img {
+  max-width: 100%; max-height: 56vh;
+  object-fit: contain; display: block;
+  transition: opacity .18s;
+}
+.act-modal-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: background var(--fast), opacity var(--fast);
+  z-index: 1;
+}
+.act-modal-nav:hover { background: rgba(255,255,255,.28); }
+.act-modal-nav:disabled { opacity: .25; pointer-events: none; }
+.act-modal-prev { left: 14px; }
+.act-modal-next { right: 14px; }
+
+.act-modal-counter {
+  position: absolute; bottom: 12px; right: 14px;
+  background: rgba(0,0,0,.55);
+  color: #fff; font-size: .72rem;
+  padding: 3px 10px; border-radius: var(--radius-xl);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+.act-modal-thumbs {
+  display: flex; gap: 8px;
+  padding: 12px 18px;
+  overflow-x: auto;
+  background: var(--bg-alt);
+  flex-shrink: 0;
+  scrollbar-width: thin;
+}
+.act-modal-thumb {
+  width: 68px; height: 50px; flex-shrink: 0;
+  border-radius: var(--radius-s);
+  object-fit: cover;
+  cursor: pointer; opacity: .5;
+  border: 2.5px solid transparent;
+  transition: opacity var(--fast), border-color var(--fast);
+}
+.act-modal-thumb:hover { opacity: .8; }
+.act-modal-thumb.active { opacity: 1; border-color: var(--accent); }
+
+@media (max-width: 480px) {
+  .act-modal-main-img { max-height: 44vh; }
+  .act-modal-thumbs { padding: 10px 12px; }
+  .act-modal-thumb { width: 54px; height: 40px; }
+}
+
+/* ============================================================
    SKELETON LOADING
    ============================================================ */
 @keyframes shimmer {
