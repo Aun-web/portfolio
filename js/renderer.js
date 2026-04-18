@@ -109,7 +109,7 @@ function renderProjects(data) {
   grid.innerHTML = data.map((p, i) => {
     const isFeatured = p.featured === 'TRUE';
     const imgHTML = p.image_url
-      ? `<img src="${escAttr(p.image_url)}" alt="${escAttr(t(p,'title'))}" loading="lazy">`
+      ? `<img src="${escAttr(driveUrl(p.image_url))}" alt="${escAttr(t(p,'title'))}" loading="lazy">`
       : `<div class="card-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h6M8 11h8"/></svg></div>`;
 
     return `
