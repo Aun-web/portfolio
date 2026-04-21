@@ -77,46 +77,26 @@ function renderSkills(data) {
 
 /* ── PROJECTS ────────────────────────────────────────── */
 function renderProjects(data) {
-  const grid   = document.getElementById('projectsGrid');
-  const filter = document.getElementById('projectFilter');
+  const grid        = document.getElementById('projectsGrid');
+  const linksWrap   = document.getElementById('anyflipLinks');
   if (!grid || !data || !data.length) return;
 
-  // Collect unique tags
-  const allTags = new Set();
-  data.forEach(p => { if (p.tags) p.tags.split(',').forEach(t => allTags.add(t.trim())); });
+  const lang = getLang();
 
-  // Add tag filter buttons
-  allTags.forEach(tag => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn';
-    btn.dataset.filter = tag;
-    btn.textContent = tag;
-    filter.appendChild(btn);
-  });
+  // Show featured-only cards
+  const featured = data.filter(p => String(p.featured).toUpperCase() === 'TRUE');
+  const list = featured.length ? featured : data; // fallback: show all if none marked
 
-  // Bind filter
-  filter.addEventListener('click', e => {
-    const btn = e.target.closest('.filter-btn');
-    if (!btn) return;
-    filter.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    grid.querySelectorAll('.project-card[data-tags]').forEach(card => {
-      card.style.display = (f === 'all' || card.dataset.tags.includes(f)) ? '' : 'none';
-    });
-  });
-
-  grid.innerHTML = data.map((p, i) => {
-    const isFeatured = p.featured === 'TRUE';
+  grid.innerHTML = list.map((p, i) => {
     const imgHTML = p.image_url
       ? `<img src="${escAttr(driveUrl(p.image_url))}" alt="${escAttr(t(p,'title'))}" loading="lazy">`
       : `<div class="card-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h6M8 11h8"/></svg></div>`;
 
     return `
-    <div class="project-card reveal-up" data-tags="${escAttr(p.tags || '')}" style="--delay:${(i % 3) * 0.08}s">
+    <div class="project-card reveal-up" style="--delay:${(i % 3) * 0.08}s">
       <div class="card-img-wrap">
         ${imgHTML}
-        ${isFeatured ? `<span class="badge-featured" data-th="แนะนำ" data-en="Featured">${getLang() === 'th' ? 'แนะนำ' : 'Featured'}</span>` : ''}
+        <span class="badge-featured" data-th="แนะนำ" data-en="Featured">${lang === 'th' ? 'แนะนำ' : 'Featured'}</span>
       </div>
       <div class="card-body">
         <div class="card-tags">${(p.tags || '').split(',').filter(Boolean).map(tag => `<span class="tag">${escAttr(tag.trim())}</span>`).join('')}</div>
@@ -127,12 +107,46 @@ function renderProjects(data) {
           data-th="${escAttr(p.desc_th)}"
           data-en="${escAttr(p.desc_en)}">${escAttr(t(p,'desc'))}</p>
         ${p.link ? `<a href="${escAttr(p.link)}" target="_blank" rel="noopener noreferrer" class="card-link">
-          <span data-th="ดูเพิ่มเติม" data-en="View More">${getLang() === 'th' ? 'ดูเพิ่มเติม' : 'View More'}</span>
+          <span data-th="ดูเพิ่มเติม" data-en="View More">${lang === 'th' ? 'ดูเพิ่มเติม' : 'View More'}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>` : ''}
       </div>
     </div>`;
   }).join('');
+
+  // Render AnyFlip category buttons
+  if (linksWrap) {
+    const cats = (CONFIG.anyflipCategories || []).filter(c => c.url);
+    if (cats.length) {
+      const label = lang === 'th'
+        ? 'ดูผลงานเพิ่มเติมตามประเภท'
+        : 'Explore More by Category';
+
+      linksWrap.innerHTML = `
+        <p class="anyflip-label">${escAttr(label)}</p>
+        <div class="anyflip-btn-row">
+          ${cats.map(c => `
+            <a href="${escAttr(c.url)}" target="_blank" rel="noopener noreferrer"
+               class="anyflip-btn"
+               data-th="${escAttr(c.label_th)}"
+               data-en="${escAttr(c.label_en)}">
+              <svg data-icon="${escAttr(c.icon)}" xmlns="http://www.w3.org/2000/svg"
+                   width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round"></svg>
+              ${escAttr(lang === 'th' ? c.label_th : c.label_en)}
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+                   viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+              </svg>
+            </a>`).join('')}
+        </div>`;
+      injectLucide(linksWrap);
+    } else {
+      linksWrap.innerHTML = ''; // URLs not set yet — hide quietly
+    }
+  }
 
   observeReveal();
 }
@@ -374,6 +388,10 @@ const LUCIDE_PATHS = {
   'credit-card':     '<rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>',
   'megaphone':       '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
   'check-square':    '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+  /* anyflip category icons */
+  'file-text':       '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8M16 13H8M16 17H8"/>',
+  'award':           '<path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>',
+  'scroll':          '<path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>',
 };
 
 function injectLucide(root) {

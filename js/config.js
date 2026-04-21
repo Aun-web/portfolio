@@ -21,6 +21,16 @@ const CONFIG = {
   /* ─── Defaults ───────────────────────────────────────────── */
   DEFAULT_LANG:  'th',
   DEFAULT_THEME: 'light',
+
+  /* ─── AnyFlip Bookcase ───────────────────────────────────── */
+  // ใส่ URL หลัง สร้าง MY BOOKCASE บน AnyFlip เสร็จแล้ว
+  anyflipBookcase: 'https://sites.google.com/view/wp-portfolio-bookcase',
+  anyflipCategories: [
+    { label_th: 'ดูงานวิจัยเพิ่มเติม',     label_en: 'More Research',      url: 'https://sites.google.com/view/wp-portfolio-bookcase/%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%A7%E0%B8%88%E0%B8%A2', icon: 'file-text'  },
+    { label_th: 'ดูแผนการสอนเพิ่มเติม',   label_en: 'More Lesson Plans',  url: 'https://sites.google.com/view/wp-portfolio-bookcase/%E0%B9%81%E0%B8%9C%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%AD%E0%B8%99', icon: 'book-open'  },
+    { label_th: 'ดูรางวัลเพิ่มเติม',       label_en: 'More Awards',        url: 'https://sites.google.com/view/wp-portfolio-bookcase/%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%A7%E0%B8%A5', icon: 'award'      },
+    { label_th: 'ดูเกียรติบัตรเพิ่มเติม', label_en: 'More Certificates',  url: 'https://sites.google.com/view/wp-portfolio-bookcase/%E0%B9%80%E0%B8%81%E0%B8%A2%E0%B8%A3%E0%B8%95%E0%B8%9A%E0%B8%95%E0%B8%A3', icon: 'scroll'     },
+  ],
 };
 
 /* ============================================================
