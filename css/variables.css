@@ -51,9 +51,9 @@
   --hero-glow:  rgba(250,246,236,.80);
 
   /* Typography */
-  --font-head:  'Noto Sans Thai', sans-serif;
-  --font-body:  'Noto Sans Thai', sans-serif;
-  --font-serif: 'Cormorant Garamond', 'Noto Serif Thai', Georgia, serif;
+  --font-head:  'Maledpan', 'Noto Sans Thai', sans-serif;
+  --font-body:  'Maledpan', 'Noto Sans Thai', sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Maledpan', Georgia, serif;
 
   /* Scale */
   --max-w:     1100px;

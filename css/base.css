@@ -1,4 +1,26 @@
 /* ============================================================
+   WEB FONTS — Maledpan (self-hosted)
+   วางไฟล์ fonts/Maledpan.woff2 + fonts/Maledpan-Bold.woff2
+   ดาวน์โหลดได้จาก https://www.f0nt.com/release/maledpan/
+   ============================================================ */
+@font-face {
+  font-family: 'Maledpan';
+  src: url('../fonts/Maledpan.woff2') format('woff2'),
+       url('../fonts/Maledpan.ttf')   format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Maledpan';
+  src: url('../fonts/Maledpan-Bold.woff2') format('woff2'),
+       url('../fonts/Maledpan-Bold.ttf')   format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
    RESET & BASE
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

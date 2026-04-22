@@ -520,6 +520,11 @@
   color: var(--text-3);
   border: 1px solid var(--border);
 }
+.award-level--cert {
+  background: rgba(94,122,110,.10);
+  color: var(--sage);
+  border: 1px solid rgba(94,122,110,.25);
+}
 
 @media (max-width: 600px) {
   .award-year-group { grid-template-columns: 64px 1fr; gap: 16px; }

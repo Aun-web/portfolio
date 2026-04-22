@@ -390,8 +390,8 @@ function renderAwards(data) {
         </div>
         <div class="award-cards">
           ${awards.map(a => {
-            const levelMap = { national: 'ระดับชาติ', area: 'ระดับเขต/จังหวัด', school: 'ระดับโรงเรียน' };
-            const levelMapEn = { national: 'National', area: 'District', school: 'School' };
+            const levelMap   = { national: 'ระดับชาติ', area: 'ระดับเขต/จังหวัด', school: 'ระดับโรงเรียน', cert: 'ประกาศนียบัตร' };
+            const levelMapEn = { national: 'National',  area: 'District/Province', school: 'School',       cert: 'Certificate'    };
             const levelClass = `award-level--${a.level || 'school'}`;
             const levelLabel = lang === 'th'
               ? (levelMap[a.level] || a.level)
