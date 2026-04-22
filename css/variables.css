@@ -51,9 +51,9 @@
   --hero-glow:  rgba(250,246,236,.80);
 
   /* Typography */
-  --font-head:  'Maledpan', 'Noto Sans Thai', sans-serif;
-  --font-body:  'Maledpan', 'Noto Sans Thai', sans-serif;
-  --font-serif: 'Cormorant Garamond', 'Maledpan', Georgia, serif;
+  --font-head:  'Kanit', sans-serif;
+  --font-body:  'Kanit', sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Kanit', Georgia, serif;
 
   /* Scale */
   --max-w:     1100px;
