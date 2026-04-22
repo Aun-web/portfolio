@@ -364,6 +364,76 @@ function renderActivities(data) {
 
 function initActivityModal() { /* modal removed — using Google Photos album link */ }
 
+/* ── AWARDS TIMELINE ─────────────────────────────── */
+function renderAwards(data) {
+  const el = document.getElementById('awardsTimeline');
+  if (!el) return;
+
+  const list = (data && data.length) ? data : DEFAULT_DATA.awards;
+  if (!list || !list.length) { el.closest('section').style.display = 'none'; return; }
+
+  const lang = getLang();
+
+  // Group by year
+  const byYear = {};
+  list.forEach(a => {
+    const yr = a.year || '—';
+    (byYear[yr] = byYear[yr] || []).push(a);
+  });
+
+  el.innerHTML = Object.entries(byYear)
+    .sort(([a], [b]) => b - a)
+    .map(([year, awards], gi) => `
+      <div class="award-year-group reveal-up" style="--delay:${gi * 0.07}s">
+        <div class="award-year-label">
+          <span class="award-year-num">${escAttr(year)}</span>
+        </div>
+        <div class="award-cards">
+          ${awards.map(a => {
+            const levelMap = { national: 'ระดับชาติ', area: 'ระดับเขต/จังหวัด', school: 'ระดับโรงเรียน' };
+            const levelMapEn = { national: 'National', area: 'District', school: 'School' };
+            const levelClass = `award-level--${a.level || 'school'}`;
+            const levelLabel = lang === 'th'
+              ? (levelMap[a.level] || a.level)
+              : (levelMapEn[a.level] || a.level);
+            return `
+            <div class="award-card">
+              <span class="award-emoji" role="img">${escAttr(a.emoji || '🏅')}</span>
+              <div class="award-content">
+                <p class="award-title"
+                   data-th="${escAttr(a.title_th)}"
+                   data-en="${escAttr(a.title_en)}">${escAttr(lang === 'th' ? a.title_th : a.title_en)}</p>
+                <p class="award-org"
+                   data-th="${escAttr(a.org_th)}"
+                   data-en="${escAttr(a.org_en)}">${escAttr(lang === 'th' ? a.org_th : a.org_en)}</p>
+              </div>
+              <span class="award-level ${escAttr(levelClass)}">${escAttr(levelLabel)}</span>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`).join('');
+
+  observeReveal();
+}
+
+/* ── ว.PA LINKS (hydrate #wpaLink1/2/3 from config) ── */
+function renderWpaLinks() {
+  const links = CONFIG.wpaLinks || {};
+  [
+    ['wpaLink1', links.d1],
+    ['wpaLink2', links.d2],
+    ['wpaLink3', links.d3],
+  ].forEach(([id, url]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (url) {
+      el.href = url;
+    } else {
+      el.style.display = 'none'; // hide button until URL is set
+    }
+  });
+}
+
 /* ── Lucide icon injector (simple path lookup) ──────── */
 const LUCIDE_PATHS = {
   /* existing */

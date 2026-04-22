@@ -16,6 +16,15 @@ const CONFIG = {
     responsibility: '2051998715',
     contact:        '364182622',
     activities:     '814240410',  // ✅ tab ACTIVITIES
+    awards:         '',           // TODO: ใส่ GID ของ tab รางวัล
+  },
+
+  /* ─── ว.PA Google Sites Links ────────────────────────── */
+  // ใส่ URL ของแต่ละด้านบน Google Sites หลังจากสร้างหน้าเสร็จแล้ว
+  wpaLinks: {
+    d1: '',   // ด้านที่ 1 — การจัดการเรียนรู้
+    d2: '',   // ด้านที่ 2 — การส่งเสริมและสนับสนุนผู้เรียน
+    d3: '',   // ด้านที่ 3 — การพัฒนาตนเองและวิชาชีพ
   },
 
   /* ─── Defaults ───────────────────────────────────────────── */
@@ -149,6 +158,36 @@ const DEFAULT_DATA = {
     { icon: 'users',         title_th: 'กิจกรรมพัฒนาผู้เรียน',           title_en: 'Student Development',             desc_th: 'ดูแลและส่งเสริมกิจกรรมนอกห้องเรียนของนักเรียน',          desc_en: 'Oversee extracurricular and development activities.' },
     { icon: 'shield-check',  title_th: 'งานประกันคุณภาพการศึกษา',        title_en: 'Quality Assurance',               desc_th: 'จัดทำเอกสารและรายงานการประกันคุณภาพภายในโรงเรียน',       desc_en: 'Prepare internal quality assurance documents and reports.' },
     { icon: 'heart-handshake',title_th:'ครูที่ปรึกษา',                   title_en: 'Homeroom Advisor',                desc_th: 'ดูแลนักเรียนในฐานะครูที่ปรึกษาประจำชั้น',               desc_en: 'Support students as their designated homeroom advisor.' },
+  ],
+
+  awards: [
+    {
+      year: '2567',
+      title_th: 'ครูผู้สอนดีเด่น กลุ่มสาระภาษาต่างประเทศ',
+      title_en: 'Outstanding Teacher — Foreign Languages',
+      org_th: 'สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแพร่ เขต 2',
+      org_en: 'Phrae Primary Educational Service Area Office 2',
+      level: 'area',
+      emoji: '🏅',
+    },
+    {
+      year: '2566',
+      title_th: 'ครูผู้สอนดีเด่น',
+      title_en: 'Outstanding Teacher Award',
+      org_th: 'โรงเรียนบ้านสามขา',
+      org_en: 'Ban Sam Kha School',
+      level: 'school',
+      emoji: '⭐',
+    },
+    {
+      year: '2565',
+      title_th: 'วิทยากรอบรม Phonics สำหรับครูปฐมวัยและประถมต้น',
+      title_en: 'Phonics Trainer for Early & Primary Teachers',
+      org_th: 'เครือข่ายโรงเรียนในเขตพื้นที่',
+      org_en: 'School Network',
+      level: 'area',
+      emoji: '🎖️',
+    },
   ],
 
   contact: [

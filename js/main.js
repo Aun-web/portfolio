@@ -48,9 +48,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     projects:       use(data && data.projects,       DEFAULT_DATA.projects),
     responsibility: use(data && data.responsibility, DEFAULT_DATA.responsibility),
     contact:        use(data && data.contact,        DEFAULT_DATA.contact),
+    awards:         use(data && data.awards,         DEFAULT_DATA.awards),
   };
 
   /* ── Render sections ─────────────────────────────────── */
+  renderWpaLinks();
+  renderAwards(d.awards);
   renderExperience(d.experience);
   renderSkills(d.skills);
   renderProjects(d.projects);
