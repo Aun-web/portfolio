@@ -1,47 +1,59 @@
 /* ============================================================
-   DESIGN TOKENS — Light Mode (default)
+   DESIGN TOKENS — Light Mode  "Royal Academic"
    ============================================================ */
 :root {
   /* Background layers */
-  --bg:          #F8F7F4;
+  --bg:          #FAF6EC;   /* Parchment Ivory */
   --bg-surface:  #FFFFFF;
-  --bg-alt:      #F2EFE9;
-  --bg-hover:    #EDE9E1;
+  --bg-alt:      #F0E8D5;
+  --bg-hover:    #E8DFC8;
 
   /* Brand */
-  --primary:         #1B3A5C;
-  --primary-light:   #2A5080;
-  --accent:          #C8965A;
-  --accent-light:    #E8C99A;
-  --accent-dim:      rgba(200,150,90,.15);
+  --primary:       #0A1F44;   /* Midnight Navy */
+  --primary-light: #1A3560;
+
+  /* Gold (accent) */
+  --accent:        #B8860B;   /* Brass Gold */
+  --accent-light:  #D4A437;
+  --accent-dim:    rgba(184,134,11,.12);
+
+  /* Alias for semantic clarity */
+  --gold:          #B8860B;
+  --gold-light:    #D4A437;
+  --gold-dim:      rgba(184,134,11,.12);
+
+  /* Status / highlight */
+  --crimson:       #7A1E2D;   /* Deep Burgundy — badges, vip */
+  --sage:          #5E7A6E;   /* Muted Sage — success, current */
 
   /* Text */
-  --text:        #1A1A2E;
-  --text-2:      #4B5563;
-  --text-3:      #9CA3AF;
+  --text:    #1A1A1A;
+  --text-2:  #4B5563;
+  --text-3:  #8A847A;
 
   /* Borders & Shadows */
-  --border:      #E5E7EB;
-  --shadow-xs:   0 1px 3px  rgba(0,0,0,.06);
-  --shadow-sm:   0 4px 12px rgba(0,0,0,.08);
-  --shadow-md:   0 8px 28px rgba(0,0,0,.10);
-  --shadow-lg:   0 16px 48px rgba(0,0,0,.12);
+  --border:    #DDD8CC;
+  --shadow-xs: 0 1px 3px  rgba(10,31,68,.06);
+  --shadow-sm: 0 4px 12px rgba(10,31,68,.09);
+  --shadow-md: 0 8px 28px rgba(10,31,68,.12);
+  --shadow-lg: 0 16px 48px rgba(10,31,68,.16);
 
   /* Timeline */
-  --tl-line:     #E5E7EB;
-  --tl-dot-bg:   #FFFFFF;
+  --tl-line:   #DDD8CC;
+  --tl-dot-bg: #FFFFFF;
 
   /* Skeleton pulse */
-  --sk-base:     #E9E7E2;
-  --sk-shine:    #F5F3EF;
+  --sk-base:  #E8DFC8;
+  --sk-shine: #F4EFE0;
 
   /* Hero depth */
-  --grid-line:   rgba(27,58,92,.07);
-  --hero-glow:   rgba(248,247,244,.75);
+  --grid-line:  rgba(10,31,68,.055);
+  --hero-glow:  rgba(250,246,236,.80);
 
   /* Typography */
-  --font-head: 'Noto Sans Thai', sans-serif;
-  --font-body: 'Noto Sans Thai', sans-serif;
+  --font-head:  'Noto Sans Thai', sans-serif;
+  --font-body:  'Noto Sans Thai', sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Noto Serif Thai', Georgia, serif;
 
   /* Scale */
   --max-w:     1100px;
@@ -52,44 +64,51 @@
   --radius-xl: 9999px;
 
   /* Motion */
-  --ease:      cubic-bezier(.4,0,.2,1);
-  --fast:      .18s;
-  --base:      .28s;
-  --slow:      .5s;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --fast: .18s;
+  --base: .28s;
+  --slow: .5s;
 }
 
 /* ============================================================
    DARK MODE
    ============================================================ */
 [data-theme="dark"] {
-  --bg:          #0D1821;
-  --bg-surface:  #172030;
-  --bg-alt:      #1F2E40;
-  --bg-hover:    #263547;
+  --bg:          #0D1B2E;
+  --bg-surface:  #14263D;
+  --bg-alt:      #1A3050;
+  --bg-hover:    #1F3A5C;
 
-  --primary:         #5B9BD5;
-  --primary-light:   #78B1E0;
-  --accent:          #C8965A;
-  --accent-light:    #A07040;
-  --accent-dim:      rgba(200,150,90,.18);
+  --primary:       #4A7DB5;
+  --primary-light: #6299CC;
 
-  --text:        #F0EFEC;
-  --text-2:      #B0BEC5;
-  --text-3:      #5C7080;
+  --accent:      #D4A437;
+  --accent-light:#E8C060;
+  --accent-dim:  rgba(212,164,55,.18);
 
-  --border:      #263547;
-  --shadow-xs:   0 1px 3px  rgba(0,0,0,.30);
-  --shadow-sm:   0 4px 12px rgba(0,0,0,.40);
-  --shadow-md:   0 8px 28px rgba(0,0,0,.50);
-  --shadow-lg:   0 16px 48px rgba(0,0,0,.60);
+  --gold:        #D4A437;
+  --gold-light:  #E8C060;
+  --gold-dim:    rgba(212,164,55,.18);
 
-  --tl-line:     #263547;
-  --tl-dot-bg:   #172030;
+  --crimson:     #9B2D3F;
+  --sage:        #7A9E8E;
 
-  --sk-base:     #1F2E40;
-  --sk-shine:    #263547;
+  --text:    #F0EDE6;
+  --text-2:  #A8B8C8;
+  --text-3:  #5C7080;
 
-  /* Hero depth */
-  --grid-line:   rgba(91,155,213,.06);
-  --hero-glow:   rgba(13,24,33,.65);
+  --border:    #1F3A5C;
+  --shadow-xs: 0 1px 3px  rgba(0,0,0,.30);
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.40);
+  --shadow-md: 0 8px 28px rgba(0,0,0,.50);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,.60);
+
+  --tl-line:   #1F3A5C;
+  --tl-dot-bg: #14263D;
+
+  --sk-base:  #1F3A5C;
+  --sk-shine: #26476E;
+
+  --grid-line:  rgba(212,164,55,.05);
+  --hero-glow:  rgba(13,27,46,.70);
 }

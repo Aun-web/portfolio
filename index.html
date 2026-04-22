@@ -20,7 +20,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
@@ -73,29 +73,99 @@
   <section id="hero">
     <div class="hero-bg">
       <div class="hero-gradient"></div>
-      <div class="hero-dots"></div>
-      <div class="hero-watermark">WP</div>
+      <div class="hero-pattern"></div>
     </div>
-    <div class="hero-content container">
-      <p class="hero-greeting reveal-fade"
-         data-th="วิศรุต ปวงขจร"
-         data-en="Witsarut Puangkhajon">วิศรุต ปวงขจร</p>
-      <h1 class="hero-headline reveal-up">
-        <span data-th="ยกระดับการเรียนรู้ในโรงเรียน ด้วยการสอนและระบบที่ใช้งานได้จริง"
-              data-en="Elevating School Learning Through Teaching and Real-World Systems">
-          ยกระดับการเรียนรู้ในโรงเรียน ด้วยการสอนและระบบที่ใช้งานได้จริง
-        </span>
-      </h1>
-      <p class="hero-sub reveal-up" style="--delay:.1s"
-         data-th="ครูภาษาอังกฤษ · นักพัฒนาระบบ GAS — สร้างเครื่องมือที่ลดภาระงานครู และเพิ่มคุณภาพการเรียนรู้ในชั้นเรียน"
-         data-en="English Teacher · GAS Systems Developer — Building tools that reduce teacher workload and enhance classroom learning">
-        ครูภาษาอังกฤษ · นักพัฒนาระบบ GAS — สร้างเครื่องมือที่ลดภาระงานครู และเพิ่มคุณภาพการเรียนรู้ในชั้นเรียน
-      </p>
-      <div class="hero-cta reveal-up" style="--delay:.2s">
-        <a href="#websystems" class="btn btn-primary" data-th="ดูระบบที่พัฒนา" data-en="View My Systems">ดูระบบที่พัฒนา</a>
-        <a href="#contact"    class="btn btn-outline"  data-th="ติดต่อร่วมงาน"  data-en="Let's Connect">ติดต่อร่วมงาน</a>
+
+    <!-- Split Layout: Photo | Info -->
+    <div class="hero-split container">
+
+      <!-- ── Photo Column ── -->
+      <div class="hero-photo-col reveal-fade">
+        <div class="hero-photo-frame">
+          <img src="images/profile.jpg" alt="นายวิศรุต ปวงขจร"
+               class="hero-photo-img" loading="eager"
+               onerror="this.style.display='none';document.getElementById('heroPhotoFb').style.display='flex'">
+          <div class="hero-photo-fb" id="heroPhotoFb">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="1.2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>WP</span>
+          </div>
+        </div>
+        <div class="hero-photo-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          <span data-th="ครูผู้สอน" data-en="Educator">ครูผู้สอน</span>
+        </div>
+      </div>
+
+      <!-- ── Info Column ── -->
+      <div class="hero-info-col reveal-up">
+        <p class="hero-rank"
+           data-th="กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ"
+           data-en="Foreign Languages Department">
+          กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ
+        </p>
+
+        <h1 class="hero-name">
+          <span data-th="นายวิศรุต" data-en="Witsarut">นายวิศรุต</span>
+          <span class="hero-surname" data-th="ปวงขจร" data-en="Puangkhajon">ปวงขจร</span>
+        </h1>
+
+        <div class="hero-gold-rule"></div>
+
+        <p class="hero-school"
+           data-th="โรงเรียนชุมชนบ้านแม่หละป่าป๋วย"
+           data-en="Chumchon Ban Mae La Pa Puai School">
+          โรงเรียนชุมชนบ้านแม่หละป่าป๋วย
+        </p>
+        <p class="hero-org"
+           data-th="สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแพร่ เขต 2"
+           data-en="Phrae Primary Educational Service Area Office 2">
+          สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแพร่ เขต 2
+        </p>
+
+        <div class="hero-cta reveal-up" style="--delay:.2s">
+          <a href="#projects" class="btn btn-primary"
+             data-th="ดูผลงาน" data-en="View Portfolio">ดูผลงาน</a>
+          <a href="#contact"  class="btn btn-outline"
+             data-th="ติดต่อ" data-en="Contact">ติดต่อ</a>
+        </div>
       </div>
     </div>
+
+    <!-- KPI Strip -->
+    <div class="hero-kpi-strip">
+      <div class="hero-kpi-row container">
+        <div class="kpi-item">
+          <span class="kpi-num">7<sup>+</sup></span>
+          <span class="kpi-label" data-th="ปีสอน" data-en="Years Teaching">ปีสอน</span>
+        </div>
+        <div class="kpi-divider"></div>
+        <div class="kpi-item">
+          <span class="kpi-num">500<sup>+</sup></span>
+          <span class="kpi-label" data-th="นักเรียนที่ดูแล" data-en="Students Taught">นักเรียนที่ดูแล</span>
+        </div>
+        <div class="kpi-divider"></div>
+        <div class="kpi-item">
+          <span class="kpi-num">12<sup>+</sup></span>
+          <span class="kpi-label" data-th="รางวัลเกียรติยศ" data-en="Awards & Honors">รางวัลเกียรติยศ</span>
+        </div>
+        <div class="kpi-divider"></div>
+        <div class="kpi-item">
+          <span class="kpi-num">8</span>
+          <span class="kpi-label" data-th="ระบบดิจิทัล" data-en="Digital Systems">ระบบดิจิทัล</span>
+        </div>
+      </div>
+    </div>
+
     <a href="#projects" class="scroll-indicator" aria-label="Scroll down">
       <div class="scroll-dot"></div>
     </a>

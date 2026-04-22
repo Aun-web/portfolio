@@ -10,10 +10,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   initHamburger();
   initSmoothScroll();
   initBackToTop();
-  initParallax();
   initActivitiesParallax();
   observeReveal();   // reveal static elements (hero, about, headers)
-  initTypewriter();
   initActivityModal();
 
   /* ── Footer year ────────────────────────────────────── */
