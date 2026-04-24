@@ -17,6 +17,7 @@ const CONFIG = {
     contact:        '364182622',
     activities:     '814240410',  // ✅ tab ACTIVITIES
     awards:         '',           // TODO: ใส่ GID ของ tab รางวัล
+    training:       '',           // TODO: ใส่ GID ของ tab อบรม (สร้าง tab ชื่อ "training")
   },
 
   /* ─── ว.PA Google Sites Links ────────────────────────── */
@@ -158,6 +159,33 @@ const DEFAULT_DATA = {
     { icon: 'users',         title_th: 'กิจกรรมพัฒนาผู้เรียน',           title_en: 'Student Development',             desc_th: 'ดูแลและส่งเสริมกิจกรรมนอกห้องเรียนของนักเรียน',          desc_en: 'Oversee extracurricular and development activities.' },
     { icon: 'shield-check',  title_th: 'งานประกันคุณภาพการศึกษา',        title_en: 'Quality Assurance',               desc_th: 'จัดทำเอกสารและรายงานการประกันคุณภาพภายในโรงเรียน',       desc_en: 'Prepare internal quality assurance documents and reports.' },
     { icon: 'heart-handshake',title_th:'ครูที่ปรึกษา',                   title_en: 'Homeroom Advisor',                desc_th: 'ดูแลนักเรียนในฐานะครูที่ปรึกษาประจำชั้น',               desc_en: 'Support students as their designated homeroom advisor.' },
+  ],
+
+  training: [
+    {
+      title_th: 'การพัฒนาทักษะภาษาอังกฤษสำหรับครู (CEFR)',
+      title_en: 'English Skills Development for Teachers (CEFR)',
+      org_th:   'สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน (สพฐ.)',
+      org_en:   'Office of Basic Education Commission (OBEC)',
+      hours:    '30',
+      year:     '2567',
+    },
+    {
+      title_th: 'การจัดการเรียนรู้เชิงรุก (Active Learning)',
+      title_en: 'Active Learning Instructional Design',
+      org_th:   'สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแพร่ เขต 2',
+      org_en:   'Phrae Primary Educational Service Area Office 2',
+      hours:    '20',
+      year:     '2566',
+    },
+    {
+      title_th: 'การวิจัยในชั้นเรียนเพื่อพัฒนาผู้เรียน',
+      title_en: 'Classroom Action Research for Student Development',
+      org_th:   'สถาบันพัฒนาครู คณาจารย์ และบุคลากรทางการศึกษา (สคบศ.)',
+      org_en:   'National Institute for Development of Teachers',
+      hours:    '12',
+      year:     '2566',
+    },
   ],
 
   awards: [

@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     responsibility: use(data && data.responsibility, DEFAULT_DATA.responsibility),
     contact:        use(data && data.contact,        DEFAULT_DATA.contact),
     awards:         use(data && data.awards,         DEFAULT_DATA.awards),
+    training:       use(data && data.training,       DEFAULT_DATA.training),
   };
 
   /* ── Render sections ─────────────────────────────────── */
@@ -59,6 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderProjects(d.projects);
   renderWebsysGrid(DEFAULT_DATA.websystems);
   renderLineOA(DEFAULT_DATA.lineoa);
+  renderTraining(d.training);
   renderActivities(data && data.activities);   // Sheets only — no fallback
   renderResponsibility(d.responsibility);
   renderContact(d.contact);

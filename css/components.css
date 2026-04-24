@@ -533,6 +533,188 @@
 }
 
 /* ============================================================
+   TRUST STRIP
+   ============================================================ */
+.trust-strip {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 0;
+}
+
+.trust-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.trust-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.trust-logos {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.trust-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  opacity: .80;
+  transition: opacity var(--fast);
+}
+.trust-logo:hover { opacity: 1; }
+
+.trust-divider {
+  width: 1px; height: 36px;
+  background: var(--border);
+}
+
+/* ============================================================
+   TRAINING CARDS
+   ============================================================ */
+.training-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.training-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--fast),
+              box-shadow var(--base),
+              transform var(--fast);
+}
+.training-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+
+.training-icon {
+  width: 44px; height: 44px;
+  background: var(--gold-dim);
+  border-radius: var(--radius-s);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.training-body { flex: 1; min-width: 0; }
+
+.training-title {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+.training-org {
+  font-size: .78rem;
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.training-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.training-hours {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.training-hours-unit {
+  font-size: .68rem;
+  color: var(--text-3);
+  letter-spacing: .04em;
+}
+
+.training-year {
+  font-size: .72rem;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+/* Summary bar */
+.training-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--primary);
+  border-radius: var(--radius-m);
+  padding: 20px 28px;
+}
+[data-theme="dark"] .training-summary {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+.training-total-label {
+  font-size: .9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.75);
+}
+[data-theme="dark"] .training-total-label { color: var(--text-2); }
+
+.training-total-right {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.training-total-num {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.training-total-unit {
+  font-size: .9rem;
+  color: rgba(255,255,255,.6);
+}
+[data-theme="dark"] .training-total-unit { color: var(--text-3); }
+
+@media (max-width: 600px) {
+  .training-card    { flex-wrap: wrap; }
+  .training-meta    { flex-direction: row; align-items: center; gap: 8px; width: 100%; }
+  .training-hours   { font-size: 1.4rem; }
+  .training-summary { flex-direction: column; text-align: center; gap: 8px; }
+}
+
+/* ============================================================
    BTN GHOST (hero 3rd CTA)
    ============================================================ */
 .btn-ghost {

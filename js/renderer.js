@@ -416,6 +416,55 @@ function renderAwards(data) {
   observeReveal();
 }
 
+/* ── TRAINING (Professional Development) ────────────── */
+function renderTraining(data) {
+  const listEl    = document.getElementById('trainingList');
+  const totalEl   = document.getElementById('trainingTotal');
+  const summaryEl = document.getElementById('trainingSummary');
+  const section   = document.getElementById('training');
+
+  if (!listEl || !data || !data.length) {
+    if (section) section.style.display = 'none';
+    return;
+  }
+
+  const lang = getLang();
+  const sorted = [...data].sort((a, b) => (b.year || 0) - (a.year || 0));
+
+  listEl.innerHTML = sorted.map((item, i) => `
+    <div class="training-card reveal-up" style="--delay:${(i % 6) * 0.06}s">
+      <div class="training-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      </div>
+      <div class="training-body">
+        <p class="training-title"
+           data-th="${escAttr(item.title_th)}"
+           data-en="${escAttr(item.title_en)}">${escAttr(lang === 'th' ? item.title_th : item.title_en)}</p>
+        <p class="training-org"
+           data-th="${escAttr(item.org_th)}"
+           data-en="${escAttr(item.org_en)}">${escAttr(lang === 'th' ? item.org_th : item.org_en)}</p>
+      </div>
+      <div class="training-meta">
+        <span class="training-hours">${escAttr(item.hours || '—')}</span>
+        <span class="training-hours-unit"
+              data-th="ชั่วโมง" data-en="hrs">${lang === 'th' ? 'ชั่วโมง' : 'hrs'}</span>
+        ${item.year ? `<span class="training-year">${escAttr(item.year)}</span>` : ''}
+      </div>
+    </div>`).join('');
+
+  // คำนวณรวมชั่วโมง
+  const total = data.reduce((sum, item) => sum + (parseFloat(item.hours) || 0), 0);
+  if (totalEl)   totalEl.textContent = total;
+  if (summaryEl) summaryEl.style.display = '';
+
+  observeReveal();
+}
+
 /* ── ว.PA LINKS (hydrate #wpaLink1/2/3 from config) ── */
 function renderWpaLinks() {
   const links = CONFIG.wpaLinks || {};
