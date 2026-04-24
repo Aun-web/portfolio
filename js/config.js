@@ -17,7 +17,7 @@ const CONFIG = {
     contact:        '364182622',
     activities:     '814240410',  // ✅ tab ACTIVITIES
     awards:         '',           // TODO: ใส่ GID ของ tab รางวัล
-    training:       '',           // TODO: ใส่ GID ของ tab อบรม (สร้าง tab ชื่อ "training")
+    training:       '1438405672', // ✅ tab อบรม / Professional Development
   },
 
   /* ─── ว.PA Google Sites Links ────────────────────────── */

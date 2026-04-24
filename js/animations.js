@@ -178,6 +178,38 @@ function initActivitiesParallax() {
   onScroll();
 }
 
+/* ── KPI Count-Up Animation ──────────────────────────── */
+function initKpiCountUp() {
+  const kpis = document.querySelectorAll('.kpi-num[data-target]');
+  if (!kpis.length) return;
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      obs.unobserve(e.target);
+      const el     = e.target;
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const dur    = 1500; // ms
+      const start  = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - start) / dur, 1);
+        // easeOutExpo easing
+        const eased   = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        const current = Math.round(eased * target);
+        el.innerHTML  = suffix
+          ? `${current}<sup>${suffix}</sup>`
+          : `${current}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.6 });
+
+  kpis.forEach(el => obs.observe(el));
+}
+
 /* ── Back to Top ─────────────────────────────────────── */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');

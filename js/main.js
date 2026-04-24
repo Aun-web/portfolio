@@ -71,6 +71,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Kick off skill bar animations for any already visible
   observeSkillBars();
 
+  // KPI count-up (fires when strip scrolls into view)
+  initKpiCountUp();
+
   /* ── badge-now extra style ───────────────────────────── */
   injectBadgeNowStyle();
 });

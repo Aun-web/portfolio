@@ -38,7 +38,8 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="#hero" class="nav-logo" aria-label="Home">
-        <span>WP</span>
+        <span class="nav-monogram">WP</span>
+        <span class="nav-logo-text" data-th="วิศรุต ปวงขจร" data-en="Witsarut">วิศรุต ปวงขจร</span>
       </a>
 
       <ul class="nav-links" id="navLinks" role="menubar">
@@ -149,22 +150,22 @@
     <div class="hero-kpi-strip">
       <div class="hero-kpi-row container">
         <div class="kpi-item">
-          <span class="kpi-num">7<sup>+</sup></span>
+          <span class="kpi-num" data-target="7" data-suffix="+">7<sup>+</sup></span>
           <span class="kpi-label" data-th="ปีสอน" data-en="Years Teaching">ปีสอน</span>
         </div>
         <div class="kpi-divider"></div>
         <div class="kpi-item">
-          <span class="kpi-num">500<sup>+</sup></span>
+          <span class="kpi-num" data-target="500" data-suffix="+">500<sup>+</sup></span>
           <span class="kpi-label" data-th="นักเรียนที่ดูแล" data-en="Students Taught">นักเรียนที่ดูแล</span>
         </div>
         <div class="kpi-divider"></div>
         <div class="kpi-item">
-          <span class="kpi-num">12<sup>+</sup></span>
+          <span class="kpi-num" data-target="12" data-suffix="+">12<sup>+</sup></span>
           <span class="kpi-label" data-th="รางวัลเกียรติยศ" data-en="Awards & Honors">รางวัลเกียรติยศ</span>
         </div>
         <div class="kpi-divider"></div>
         <div class="kpi-item">
-          <span class="kpi-num">8</span>
+          <span class="kpi-num" data-target="8" data-suffix="">8</span>
           <span class="kpi-label" data-th="ระบบดิจิทัล" data-en="Digital Systems">ระบบดิจิทัล</span>
         </div>
       </div>
@@ -498,6 +499,15 @@
         data-en="Feel free to reach out through any of the channels below. I'd be happy to connect!">
         หากต้องการติดต่อหรือสอบถามข้อมูลเพิ่มเติม สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้ครับ
       </p>
+      <!-- QR Code -->
+      <div class="contact-qr reveal-up">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=8&data=https%3A%2F%2Faun-web.github.io%2Fportfolio"
+             alt="QR Code — aun-web.github.io/portfolio"
+             class="contact-qr-img" loading="lazy">
+        <p class="contact-qr-label" data-th="สแกนเพื่อเปิด Portfolio" data-en="Scan to open Portfolio">สแกนเพื่อเปิด Portfolio</p>
+        <p class="contact-qr-url">aun-web.github.io/portfolio</p>
+      </div>
+
       <div class="contact-cards" id="contactCards">
         <!-- Rendered by JS -->
       </div>

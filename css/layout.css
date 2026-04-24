@@ -32,14 +32,40 @@
 /* Logo */
 .nav-logo {
   font-family: var(--font-head);
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--text);
   letter-spacing: .04em;
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 10px;
   transition: color var(--fast);
 }
 .nav-logo:hover { color: var(--accent); }
+.nav-logo:hover .nav-monogram { background: var(--accent-light); }
+
+/* WP Gold Monogram Circle */
+.nav-monogram {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: .9rem;
+  font-weight: 700;
+  font-style: italic;
+  display: flex; align-items: center; justify-content: center;
+  letter-spacing: .02em;
+  box-shadow: 0 0 0 3px var(--gold-dim);
+  transition: background var(--fast), box-shadow var(--fast);
+}
+.nav-logo-text {
+  font-family: var(--font-head);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color var(--fast);
+}
+@media (max-width: 620px) { .nav-logo-text { display: none; } }
 
 /* Nav links */
 .nav-links {
@@ -381,6 +407,14 @@
   color: var(--text);
   letter-spacing: -.01em;
 }
+.section-header h2::after {
+  content: '';
+  display: block;
+  width: 56px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
 
 /* ============================================================
    ABOUT
@@ -611,6 +645,7 @@
 .act-header-text { display: flex; flex-direction: column; gap: 14px; }
 .act-header-text .section-label { align-self: flex-start; }
 .act-header-text h2 { text-align: left; }
+.act-header-text h2::after { margin-left: 0; }
 .act-header-desc {
   font-size: .92rem;
   color: var(--text-3);
