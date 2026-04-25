@@ -16,7 +16,7 @@ const CONFIG = {
     responsibility: '2051998715',
     contact:        '364182622',
     activities:     '814240410',  // ✅ tab ACTIVITIES
-    awards:         '',           // TODO: ใส่ GID ของ tab รางวัล
+    awards:         '1158800516', // ✅ tab รางวัล / Awards
     training:       '1438405672', // ✅ tab อบรม / Professional Development
   },
 
