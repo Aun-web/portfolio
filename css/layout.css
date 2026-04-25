@@ -334,10 +334,9 @@
 }
 
 .kpi-num {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  font-weight: 600;
-  font-style: italic;
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
   color: var(--gold);
   line-height: 1;
 }
@@ -473,10 +472,9 @@
 [data-theme="dark"] .about-stat { border-right-color: var(--border); }
 
 .about-stat-num {
-  font-family: var(--font-serif);
+  font-family: var(--font-head);
   font-size: clamp(1.7rem, 3vw, 2.3rem);
   font-weight: 700;
-  font-style: italic;
   color: var(--gold);
   line-height: 1;
 }
