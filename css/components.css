@@ -213,36 +213,45 @@
   display: flex; align-items: center; gap: 16px;
   background: var(--bg-surface);
   border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
   border-radius: var(--radius-m);
   padding: 18px 22px;
   min-width: 280px;
+  box-shadow: var(--shadow-xs);
   transition: transform var(--base), box-shadow var(--base), border-color var(--fast);
 }
 .contact-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
-  border-color: var(--accent-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+  border-left-color: var(--gold-light);
 }
 
 .contact-icon {
-  width: 44px; height: 44px;
+  width: 46px; height: 46px;
   border-radius: var(--radius-s);
-  background: var(--accent-dim);
-  color: var(--accent);
+  background: var(--primary);
+  color: #fff;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(10,31,68,.22);
+}
+[data-theme="dark"] .contact-icon {
+  background: var(--bg-alt);
+  color: var(--gold);
+  box-shadow: none;
 }
 .contact-icon svg { width: 20px; height: 20px; }
 
 .contact-info { flex: 1; min-width: 0; }
 .contact-label {
   display: block;
-  font-size: .75rem;
-  font-weight: 600;
-  color: var(--text-3);
-  letter-spacing: .06em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: .08em;
   text-transform: uppercase;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 .contact-value {
   font-size: .9rem;
@@ -261,8 +270,14 @@
   transition: color var(--fast), background var(--fast);
   flex-shrink: 0;
 }
-.copy-btn:hover  { color: var(--accent); background: var(--accent-dim); }
+.copy-btn:hover  { color: var(--gold); background: var(--gold-dim); }
 .copy-btn svg    { width: 16px; height: 16px; display: block; }
+
+/* Mobile: full-width cards */
+@media (max-width: 600px) {
+  .contact-card { min-width: 0; width: 100%; }
+  .contact-cards { flex-direction: column; align-items: stretch; }
+}
 
 /* ============================================================
    ว.PA CARDS
@@ -386,6 +401,14 @@
 }
 .wpa-link:hover { color: var(--gold); gap: 11px; }
 [data-theme="dark"] .wpa-link { color: var(--gold); }
+
+/* WPA dark mode */
+[data-theme="dark"] .wpa-card {
+  background: var(--bg-surface);
+  border-color: var(--border);
+}
+[data-theme="dark"] .wpa-card:hover { border-color: var(--gold); }
+[data-theme="dark"] .wpa-title { color: var(--text); }
 
 @media (max-width: 900px) {
   .wpa-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -525,6 +548,29 @@
   color: var(--sage);
   border: 1px solid rgba(94,122,110,.25);
 }
+
+/* Awards dark mode */
+[data-theme="dark"] .award-card {
+  background: var(--bg-surface);
+  border-color: var(--border);
+}
+[data-theme="dark"] .award-card:hover { border-color: var(--gold); }
+[data-theme="dark"] .award-level--national {
+  background: rgba(155,45,63,.18);
+  color: #D47888;
+  border-color: rgba(155,45,63,.35);
+}
+[data-theme="dark"] .award-level--school {
+  background: var(--bg-alt);
+  color: var(--text-3);
+  border-color: var(--border);
+}
+[data-theme="dark"] .award-level--cert {
+  background: rgba(122,158,142,.14);
+  color: var(--sage);
+  border-color: rgba(122,158,142,.3);
+}
+[data-theme="dark"] .award-year-label::after { border-color: var(--bg-alt); }
 
 @media (max-width: 600px) {
   .award-year-group { grid-template-columns: 64px 1fr; gap: 16px; }
