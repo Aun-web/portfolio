@@ -157,8 +157,10 @@ const DEFAULT_DATA = {
     { icon: 'clipboard-list',title_th: 'วางแผนการจัดการเรียนรู้',         title_en: 'Lesson Planning',                 desc_th: 'ออกแบบหน่วยการเรียนรู้และแผนการสอนรายปี',                desc_en: 'Design annual units and individual lesson plans.' },
     { icon: 'bar-chart-2',   title_th: 'ประเมินผลการเรียนรู้',            title_en: 'Student Assessment',              desc_th: 'วัดและประเมินผลนักเรียนด้วยเครื่องมือที่หลากหลาย',       desc_en: 'Assess students using varied evaluation tools.' },
     { icon: 'users',         title_th: 'กิจกรรมพัฒนาผู้เรียน',           title_en: 'Student Development',             desc_th: 'ดูแลและส่งเสริมกิจกรรมนอกห้องเรียนของนักเรียน',          desc_en: 'Oversee extracurricular and development activities.' },
-    { icon: 'shield-check',  title_th: 'งานประกันคุณภาพการศึกษา',        title_en: 'Quality Assurance',               desc_th: 'จัดทำเอกสารและรายงานการประกันคุณภาพภายในโรงเรียน',       desc_en: 'Prepare internal quality assurance documents and reports.' },
     { icon: 'heart-handshake',title_th:'ครูที่ปรึกษา',                   title_en: 'Homeroom Advisor',                desc_th: 'ดูแลนักเรียนในฐานะครูที่ปรึกษาประจำชั้น',               desc_en: 'Support students as their designated homeroom advisor.' },
+    { icon: 'calculator',    title_th: 'เจ้าหน้าที่บัญชี',               title_en: 'Accounting Officer',              desc_th: 'จัดทำและดูแลบัญชีการเงินของโรงเรียน',                   desc_en: 'Prepare and maintain the school\'s financial accounts.' },
+    { icon: 'stethoscope',   title_th: 'ครูพยาบาล',                      title_en: 'School Nurse',                    desc_th: 'ดูแลสุขภาพและปฐมพยาบาลนักเรียนในห้องพยาบาล',           desc_en: 'Provide student health care and first aid at the infirmary.' },
+    { icon: 'utensils',      title_th: 'ดูแลระบบ Thai School Lunch',     title_en: 'Thai School Lunch Admin',         desc_th: 'ดูแลและบันทึกข้อมูลระบบอาหารกลางวัน Thai School Lunch',  desc_en: 'Administer and record data in the Thai School Lunch program.' },
   ],
 
   training: [
