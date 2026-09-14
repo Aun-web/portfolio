@@ -438,7 +438,7 @@
 
 .award-year-group {
   display: grid;
-  grid-template-columns: 92px 1fr;
+  grid-template-columns: 92px minmax(0, 1fr);
   gap: 24px;
   align-items: flex-start;
 }
@@ -584,7 +584,7 @@
 [data-theme="dark"] .award-year-label::after { border-color: var(--bg-alt); }
 
 @media (max-width: 600px) {
-  .award-year-group { grid-template-columns: 64px 1fr; gap: 16px; }
+  .award-year-group { grid-template-columns: 64px minmax(0, 1fr); gap: 16px; }
   .award-year-num { font-size: 1.4rem; }
   .award-level { display: none; }
 }
