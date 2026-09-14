@@ -86,12 +86,3 @@
 body {
   animation: pageFadeIn .4s ease forwards;
 }
-
-/* ============================================================
-   MOBILE MENU OVERLAY
-   ============================================================ */
-@media (max-width: 760px) {
-  .nav-links {
-    z-index: 999;
-  }
-}

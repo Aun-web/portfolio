@@ -59,7 +59,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderSkills(d.skills);
   renderProjects(d.projects);
   renderWebsysGrid(DEFAULT_DATA.websystems);
-  renderLineOA(DEFAULT_DATA.lineoa);
   renderTraining(d.training);
   renderActivities(data && data.activities);   // Sheets only — no fallback
   renderResponsibility(d.responsibility);

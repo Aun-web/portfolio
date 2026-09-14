@@ -292,20 +292,22 @@ const DEFAULT_DATA = {
       url: 'https://script.google.com/macros/s/AKfycbynMVuU4kJipvr55AbF8wsLu6ynmFePaIdjuiMhmR3ttg-aXZFDJBvi6ECKrcrklpdNGQ/exec',
       tech: 'Google Apps Script',
     },
+    {
+      // ระบบที่ 8 — ไม่มีภาพหน้าจอ/ลิงก์สาธารณะ: การ์ดแสดงแถบไอคอนแทนภาพ และไม่มีปุ่ม "เปิดระบบ"
+      icon: 'message-circle', color: '#06C755', color_dim: 'rgba(6,199,85,.13)',
+      image: '',
+      title_th: 'ระบบ Line Official Account โรงเรียน', title_en: 'School Line Official Account',
+      desc_th: 'ช่องทางสื่อสารครบวงจรระหว่างครูกับผู้ปกครอง',
+      desc_en: 'An all-in-one communication channel between teachers and parents.',
+      features: [
+        { label_th: 'เช็คชื่อนักเรียน', label_en: 'Attendance'     },
+        { label_th: 'ประกาศข่าวสาร',   label_en: 'Announcements'  },
+        { label_th: 'ดูผลการเรียน',    label_en: 'Grades'         },
+        { label_th: 'ติดตามการบ้าน',   label_en: 'Homework'       },
+        { label_th: 'ตรวจสอบวันหยุด',  label_en: 'Holidays'       },
+      ],
+      url: '',
+      tech: 'LINE Official Account',
+    },
   ],
-
-  /* ── Line OA ──────────────────────────────────────────────── */
-  lineoa: {
-    title_th: 'ระบบ Line OA โรงเรียน',
-    title_en: 'School Line Official Account',
-    desc_th: 'ระบบสื่อสารครบวงจรระหว่างครูและผู้ปกครองผ่าน Line Official Account ของโรงเรียน ครอบคลุมทุกความต้องการด้านการสื่อสารในชีวิตประจำวัน',
-    desc_en: 'A complete teacher-parent communication system via the school\'s Line OA, covering all daily communication needs.',
-    features: [
-      { icon: 'check-square',  label_th: 'เช็คชื่อนักเรียน',   label_en: 'Attendance Check'     },
-      { icon: 'megaphone',     label_th: 'ครูประกาศ–แจ้งข่าว', label_en: 'Teacher Announcements' },
-      { icon: 'bar-chart-2',   label_th: 'ดูเกรดนักเรียน',     label_en: 'Grade Viewing'         },
-      { icon: 'book-open',     label_th: 'ติดตามการบ้าน',       label_en: 'Homework Tracking'     },
-      { icon: 'calendar-days', label_th: 'ตรวจสอบวันหยุด',     label_en: 'Holiday Calendar'      },
-    ],
-  },
 };

@@ -219,15 +219,24 @@ function renderWebsysGrid(data) {
   if (!el || !data || !data.length) return;
   const lang = getLang();
 
-  el.innerHTML = data.map((sys, i) => `
-    <a href="${escAttr(sys.url)}" target="_blank" rel="noopener noreferrer"
+  el.innerHTML = data.map((sys, i) => {
+    // การ์ดที่ไม่มี url (เช่น Line OA) เป็น <div> ไม่มีปุ่ม "เปิดระบบ"
+    const tag = sys.url ? 'a' : 'div';
+    const linkAttrs = sys.url ? ` href="${escAttr(sys.url)}" target="_blank" rel="noopener noreferrer"` : '';
+    return `
+    <${tag}${linkAttrs}
        class="websys-card reveal-up"
        style="--delay:${(i % 4) * 0.07}s; --sys-color:${sys.color}; --sys-color-dim:${sys.color_dim}">
       ${sys.image ? `
       <div class="websys-img">
         <img src="${escAttr(sys.image)}" alt="${escAttr(lang === 'th' ? sys.title_th : sys.title_en)}" loading="lazy">
         <div class="websys-img-overlay"></div>
-      </div>` : ''}
+      </div>` : `
+      <div class="websys-img websys-img--icon" aria-hidden="true">
+        <svg data-icon="${escAttr(sys.icon)}" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+             stroke-linecap="round" stroke-linejoin="round"></svg>
+      </div>`}
       <div class="websys-icon">
         <svg data-icon="${escAttr(sys.icon)}" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -239,64 +248,23 @@ function renderWebsysGrid(data) {
       <p class="websys-desc"
          data-th="${escAttr(sys.desc_th)}"
          data-en="${escAttr(sys.desc_en)}">${escAttr(lang === 'th' ? sys.desc_th : sys.desc_en)}</p>
+      ${sys.features && sys.features.length ? `
+      <ul class="websys-features">
+        ${sys.features.map(f => `<li data-th="${escAttr(f.label_th)}" data-en="${escAttr(f.label_en)}">${escAttr(lang === 'th' ? f.label_th : f.label_en)}</li>`).join('')}
+      </ul>` : ''}
       <div class="websys-footer">
         <span class="websys-tech">${escAttr(sys.tech)}</span>
+        ${sys.url ? `
         <span class="websys-link">
           <span data-th="เปิดระบบ" data-en="Open">${lang === 'th' ? 'เปิดระบบ' : 'Open'}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
           </svg>
-        </span>
+        </span>` : ''}
       </div>
-    </a>`).join('');
-
-  injectLucide(el);
-  observeReveal();
-}
-
-function renderLineOA(lineoa) {
-  const el = document.getElementById('lineOAWrap');
-  if (!el || !lineoa) return;
-  const lang = getLang();
-
-  el.innerHTML = `
-  <div class="lineoa-card reveal-up" style="--delay:.08s">
-    <div>
-      <div class="lineoa-badge">
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
-        </svg>
-        Line Official Account
-      </div>
-      <h3 class="lineoa-title"
-          data-th="${escAttr(lineoa.title_th)}"
-          data-en="${escAttr(lineoa.title_en)}">${escAttr(lang === 'th' ? lineoa.title_th : lineoa.title_en)}</h3>
-      <p class="lineoa-desc"
-         data-th="${escAttr(lineoa.desc_th)}"
-         data-en="${escAttr(lineoa.desc_en)}">${escAttr(lang === 'th' ? lineoa.desc_th : lineoa.desc_en)}</p>
-      <div class="lineoa-features">
-        ${lineoa.features.map(f => `
-          <div class="lineoa-feature">
-            <svg data-icon="${escAttr(f.icon)}" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round"></svg>
-            <span data-th="${escAttr(f.label_th)}"
-                  data-en="${escAttr(f.label_en)}">${escAttr(lang === 'th' ? f.label_th : f.label_en)}</span>
-          </div>`).join('')}
-      </div>
-    </div>
-    <div class="lineoa-side">
-      <div class="lineoa-icon-big">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
-        </svg>
-      </div>
-      <p class="lineoa-platform">LINE OA</p>
-    </div>
-  </div>`;
+    </${tag}>`;
+  }).join('');
 
   injectLucide(el);
   observeReveal();
