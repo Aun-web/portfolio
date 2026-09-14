@@ -377,12 +377,18 @@
   color: var(--text-2);
   line-height: 1.55;
 }
-.wpa-item::before {
-  content: '◆';
-  font-size: .45rem;
-  color: var(--gold);
-  margin-top: 7px;
+.wpa-item-num {
   flex-shrink: 0;
+  min-width: 22px; height: 22px;
+  margin-top: 1px;
+  padding: 0 4px;
+  border-radius: var(--radius-xl);
+  background: var(--gold-dim);
+  color: var(--gold);
+  font-size: .7rem;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
 }
 
 .wpa-link {
