@@ -337,7 +337,13 @@ function renderAwards(data) {
   const el = document.getElementById('awardsTimeline');
   if (!el) return;
 
-  const list = (data && data.length) ? data : DEFAULT_DATA.awards;
+  // Sheet เป็นแหล่งข้อมูลหลัก; รางวัลใน config ที่ตั้ง pinned:true จะแสดงด้วยเสมอ
+  // (ข้ามถ้ามีชื่อเดียวกันใน Sheet แล้ว) — ลบ pinned ออกได้เมื่อเพิ่มแถวใน Sheet
+  const sheet  = (data && data.length) ? data : [];
+  const norm   = s => String(s || '').replace(/\s+/g, '').toLowerCase();
+  const pinned = (DEFAULT_DATA.awards || [])
+    .filter(a => a.pinned && !sheet.some(b => norm(b.title_th) === norm(a.title_th)));
+  const list = sheet.length ? [...sheet, ...pinned] : DEFAULT_DATA.awards;
   if (!list || !list.length) { el.closest('section').style.display = 'none'; return; }
 
   const lang = getLang();

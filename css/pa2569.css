@@ -621,65 +621,57 @@ html[lang="en"] .pa-en-note { display: block; }
 .pa-outcome.is-qual .pa-outcome-kind { background: rgba(94,122,110,.14); color: var(--sage); }
 .pa-outcome.is-qual .pa-outcome-text { color: var(--text-2); }
 
-/* B.E.T → BEST diagram */
-.pa-lead { font-size: .95rem; line-height: 1.85; color: var(--text-2); margin-bottom: 18px; }
-.pa-lead strong { color: var(--text); }
-
-.pa-evo { display: grid; gap: 8px; max-width: 760px; margin: 0 auto; }
-.pa-evo-row {
+/* BEST Model phases */
+.pa-phases {
   display: grid;
-  grid-template-columns: 1fr 30px 1fr;
-  gap: 6px;
-  align-items: stretch;
+  gap: 12px;
+  counter-reset: phase;
 }
-.pa-evo-cell {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 10px;
-  border-radius: var(--radius-s);
-  font-size: .84rem; line-height: 1.4;
-  color: var(--text);
+.pa-phase {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius-m);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-xs);
 }
-.pa-evo-cell b {
+.pa-phase-letter {
+  width: 42px; height: 42px;
   flex-shrink: 0;
-  width: 30px; height: 30px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-serif);
-  font-size: 1.1rem; font-weight: 700;
-}
-.pa-evo-cell.is-bet  { background: var(--bg-surface); border: 1.5px solid var(--d1); }
-.pa-evo-cell.is-bet b  { background: var(--d1-dim); color: var(--d1); }
-.pa-evo-cell.is-best { background: var(--gold-dim); border: 1.5px solid var(--gold); }
-.pa-evo-cell.is-best b { background: var(--gold); color: #fff; }
-.pa-evo-cell.is-new {
+  font-size: 1.5rem; font-weight: 700;
   background: var(--gold);
   color: #fff;
-  font-weight: 600;
-  box-shadow: 0 6px 18px rgba(184,134,11,.35);
+  box-shadow: 0 0 0 4px var(--gold-dim);
 }
-.pa-evo-cell.is-new b { background: #fff; color: var(--gold); }
-.pa-evo-cell.is-new em { font-style: normal; font-size: .76rem; opacity: .95; }
-[data-theme="dark"] .pa-evo-cell.is-new,
-[data-theme="dark"] .pa-evo-cell.is-best b { color: #0D1B2E; }
-[data-theme="dark"] .pa-evo-cell.is-new b { background: #0D1B2E; color: var(--gold); }
-.pa-evo-cell.is-empty {
-  justify-content: center;
-  border: 1.5px dashed var(--border);
-  color: var(--text-3);
-}
-.pa-evo-head .pa-evo-cell {
-  justify-content: center; text-align: center;
-  font-weight: 700; font-size: .84rem;
-}
-.pa-evo-head .pa-evo-cell.is-bet  { background: var(--d1); color: #fff; }
-.pa-evo-head .pa-evo-cell.is-best { background: var(--gold); color: #fff; }
-[data-theme="dark"] .pa-evo-head .pa-evo-cell { color: #0D1B2E; }
-.pa-evo-arrow {
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; font-weight: 700;
+[data-theme="dark"] .pa-phase-letter { color: #0D1B2E; }
+.pa-phase-name { font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.pa-phase-desc { font-size: .9rem; line-height: 1.7; color: var(--text-2); }
+.pa-phase-week {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: .74rem; font-weight: 600;
   color: var(--gold);
+  background: var(--gold-dim);
+  border-radius: var(--radius-xl);
+  padding: 2px 10px;
 }
-.pa-evo-arrow.is-plus { font-size: 1.35rem; }
+/* connector between phases */
+.pa-phase::after {
+  content: '';
+  position: absolute;
+  left: 39px; top: 100%;
+  width: 2px; height: 12px;
+  background: var(--tl-line);
+}
+.pa-phase:last-child::after { display: none; }
 
 .pa-note {
   margin-top: 20px;
@@ -696,10 +688,9 @@ html[lang="en"] .pa-en-note { display: block; }
   .pa-problems { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .pa-outcomes { grid-template-columns: 1.1fr 1fr; gap: 20px; }
   .pa-outcome { padding: 28px 30px 30px; }
-  .pa-evo-row { grid-template-columns: 1fr 56px 1fr; gap: 10px; }
-  .pa-evo-cell { padding: 12px 16px; font-size: .95rem; gap: 12px; }
-  .pa-evo-cell b { width: 36px; height: 36px; font-size: 1.3rem; }
-  .pa-evo-arrow { font-size: 1.5rem; }
+  .pa-phases { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .pa-phase { grid-template-columns: 1fr; text-align: left; }
+  .pa-phase::after { left: auto; top: 36px; right: -20px; width: 20px; height: 2px; }
 }
 @media (min-width: 1000px) {
   .pa-steps { grid-template-columns: repeat(4, 1fr); gap: 28px 16px; }
@@ -728,6 +719,45 @@ html[lang="en"] .pa-en-note { display: block; }
 }
 .pa-footer .footer-role { line-height: 1.8; }
 .pa-footer .footer-copy a { color: var(--accent); }
+
+/* ============================================================
+   AWARD BAND (under hero)
+   ============================================================ */
+.pa-award-band {
+  position: relative; z-index: 1;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+.pa-award {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding-top: 16px; padding-bottom: 16px;
+}
+.pa-award-emoji { font-size: 1.8rem; line-height: 1.2; flex-shrink: 0; }
+.pa-award-kicker {
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.pa-award-name {
+  font-size: 1.1rem; font-weight: 700; color: var(--text);
+  margin-bottom: 2px;
+}
+.pa-award-work { font-size: .88rem; line-height: 1.6; color: var(--text-2); }
+.pa-award-meta { font-size: .78rem; color: var(--text-3); margin-top: 4px; }
+
+/* Award certificate in an evidence list */
+.pa-evidence a.is-award {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  font-weight: 600;
+}
+.pa-evidence a.is-award::before { display: none; }
+
+@media (min-width: 761px) {
+  .pa-award { align-items: center; gap: 18px; padding-top: 18px; padding-bottom: 18px; }
+  .pa-award-emoji { font-size: 2.2rem; }
+}
 
 /* ============================================================
    PRINT — A4, all domains expanded, no nav, no colour fills
@@ -785,7 +815,7 @@ html[lang="en"] .pa-en-note { display: block; }
   .pa-kpi { border: 1px solid #999; border-left: 3pt solid var(--dc); padding: 10pt 12pt; }
   .pa-kpi.is-highlight { border: 1.5pt solid #000; border-left: 4pt solid var(--dc); }
   .pa-kpi-head, .pa-kpi-block h5, .pa-h3, .pa-domain-title { break-after: avoid; page-break-after: avoid; }
-  .pa-kpi-block, .pa-problems li, .pa-steps li, .pa-outcome, .pa-evo, tr { break-inside: avoid; page-break-inside: avoid; }
+  .pa-kpi-block, .pa-problems li, .pa-steps li, .pa-outcome, .pa-phase, tr { break-inside: avoid; page-break-inside: avoid; }
   .pa-kpi-block { padding-left: 0; }
 
   .pa-kpi-num { background: none; color: #000; border: 1.5pt solid #000; box-shadow: none; }
@@ -816,15 +846,13 @@ html[lang="en"] .pa-en-note { display: block; }
   .pa-steps::before, .pa-steps li::after { display: none !important; }
   .pa-step-no { box-shadow: none; }
 
-  .pa-evo-cell, .pa-evo-head .pa-evo-cell.is-bet, .pa-evo-head .pa-evo-cell.is-best,
-  .pa-evo-cell.is-new, .pa-evo-cell.is-best, .pa-evo-cell.is-bet {
-    background: none !important; color: #000 !important; border: 1px solid #999; box-shadow: none;
-  }
-  .pa-evo-cell.is-new { border: 2pt solid #000; }
-  .pa-evo-cell b, .pa-evo-cell.is-new b, .pa-evo-cell.is-best b {
-    background: none !important; color: #000 !important; border: 1px solid #000;
-  }
-  .pa-evo-arrow { color: #000; }
+  .pa-phase { background: none !important; box-shadow: none !important; border: 1px solid #999; }
+  .pa-phase-letter { background: none !important; color: #000 !important; border: 1.5pt solid #000; box-shadow: none; }
+  .pa-phase-week { background: none !important; color: #000; padding: 0; }
+  .pa-phase::after { display: none; }
+
+  .pa-award-band { background: none !important; border: 1px solid #999; margin-top: 8pt; }
+  .pa-evidence a.is-award { background: none !important; color: #000 !important; }
 
   #footer { border-top: 1px solid #999; padding: 12pt 0 0; margin-top: 14pt; }
   a { color: inherit; }

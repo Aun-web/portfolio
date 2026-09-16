@@ -192,6 +192,16 @@ const DEFAULT_DATA = {
 
   awards: [
     {
+      year: '2569',
+      title_th: 'รางวัลระดับดีมาก การประกวดการออกแบบแผนการจัดการเรียนรู้แบบ Active Learning ของครูผู้สอน ประเภทครูผู้สอนระดับชั้นประถมศึกษาปีที่ 4-6',
+      title_en: 'Very Good Award — Active Learning Lesson Plan Design Contest (Grades 4-6 teachers)',
+      org_th: 'สำนักงานเขตพื้นที่การศึกษาประถมศึกษาแพร่ เขต 2',
+      org_en: 'Phrae Primary Educational Service Area Office 2',
+      level: 'area',
+      emoji: '🏆',
+      pinned: true,   // แสดงเสมอ แม้ Sheet จะโหลดสำเร็จ (ยังไม่มีแถวนี้ใน Sheet)
+    },
+    {
       year: '2568',
       title_th: 'ผ่านการสอบวัดทักษะภาษาอังกฤษ CEFR ระดับ B2 (EF SET)',
       title_en: 'CEFR B2 English Proficiency — EF Standard English Test',
